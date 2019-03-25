@@ -60,13 +60,20 @@ None
 	// Fills the array with the sequence extracted from the specific pre-determined url
 	function getArray(page)
 	{
-		var x = page.indexOf("cds");
-		x += 3;
-		var y = page.indexOf("</pre>");
+		var tempstorage = document.createElement('tempstorage');
+		tempstorage.innerHTML = page;
+		var contentString = tempstorage.innerText;
 		
+		
+		var x = contentString.indexOf("cds");
+		x += 3;
+		var y = contentString.indexOf("</pre>");
+		
+		var textString = contentString.slice(x, y);
+				
 		for(var i = x; i < y-1; i++)
 		{
-			geneArray[i] = page.slice(i, i+1);
+			geneArray[i] = textString.slice(i, i+1);
 		}
 	}
 	
