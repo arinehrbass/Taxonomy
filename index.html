@@ -17,7 +17,7 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-To calculate the user's risk of depression based on DSM-5 criteria.
+To determine the base composition of a given DNA sequence.
  
 Known Issues:
 None
@@ -25,7 +25,7 @@ None
    
 <!--Header displays app title at the top of the page-->
 <head> 
-      <title>Simple Depression Test</title>  
+      <title>DNA Sequence Composition Calculator</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
@@ -35,69 +35,91 @@ None
 	
 <!--Script details Javascript functions for storage functions and calculations-->	
 <script>
-	// Stores total risk score incremented by questions
-	var risk = 0;
+	// Instantiates array containing all base letters in a gene
+	var geneArray = [];
 	
-	// Stores string of risk type
-	var type;
+	// Contains total count of base A occurrences and percent A respectively
+	var baseA = 0;
+	var percentA = 0;
 	
-	// Stores whether suicide question was answered with yes
-	var suiciderisk = 0;
+	// Contains total count of base T occurrences and percent T respectively
+	var baseT = 0;
+	var percentT = 0;
 	
-	// Adds a proportionate amount to risk score based on question answer
-	function increment(p1)
+	// Contains total count of base G occurrences and percent G respectively
+	var baseG = 0;
+	var percentG = 0;
+	
+	// Contains total count of base C occurrences and percent C respectively
+	var baseC = 0;
+	var percentC = 0;
+	
+	// Contains total base count
+	var baseTotal = 0;
+	
+	// Fills the array with the sequence extracted from the specific pre-determined url
+	function getArray(page)
 	{
-		risk += p1;
-		alert(risk);
+		var x = page.indexOf("<pre>");
+		x += 5;
+		var y = page.indexOf("</pre>");
+		
+		for(int i = x; i < y-1; i++)
+		{
+			geneArray[i] = page.slice(i, i+1);
+		}
 	}
 	
-	// Changes suicide risk to 1 if question is answered with yes
-	function setSRisk()
+	// Calculates and returns the percentages and counts of each base in a sequence
+	function getComposition()
 	{
-		suiciderisk = 1;
+		// Determines instances of A, T, G, and C in gene and stores to variables
+		for(int index = 0; index < geneArray.length; index++)
+		{
+			if(geneArray[index].equalsIgnoreCase("A"))
+			{
+				baseA++;
+			}
+			else if(geneArray[index].equalsIgnoreCase("T"))
+			{
+				baseT++;
+			}
+			else if(geneArray[index].equalsIgnoreCase("G"))
+			{
+				baseG++;
+			}
+			else
+			{
+				baseC++;
+			}
+		}
+		
+		// Calculates total base count
+		baseTotal = baseA + baseT + baseG + baseC;
+		
+		// Calculates percent composition of each base
+		percentA = (baseA / baseTotal) * 100;
+		percentT = (baseT / baseTotal) * 100;
+		percentG = (baseG / baseTotal) * 100;
+		percentC = (baseC / baseTotal) * 100;
+		
+		// Prints final composition results
+		document.getElementById("end").innerHTML = "BASE COMPOSITION: <br>" + "Total Base Count: " + baseTotal + "<br>Adenine Composition: " + percentA + "% - (" + baseA + " occurrences)" + "<br>Thymine Composition: " + percentT + "% - (" + baseT + " occurrences)" + "<br>Guanine Composition: " + percentG + "% - (" + baseG + " occurrences)" + "<br>Cytosine Composition: " + percentC + "% - (" + baseC + " occurrences)";
 	}
 	
-	// Resets risk score to zero
+	// Resets all variables to 0 or empty
 	function resetVariables()
 	{
-		risk = 0;
-		suiciderisk = 0;
-	}
-	
-	// Calculates type of depressive risk and corresponding icon, with "severe" being a score above 23 (or suicide risk score of 1), "moderate" being between 14-23, "low" being between 5-14, and "none" being a score below 5
-	function calculateRisk()
-	{
-		var src = "https://i.imgur.com/rZOaHhx.png";
-		var alt = "Risk Type Icon";
-		
-		if(risk > 23 || suiciderisk == 1)
-		{
-			type = "Severe";
-			src = "https://i.imgur.com/SVbrjT2.png";
-			alt = "Severe Risk Icon";
-		}
-		else if(risk > 14 && risk <= 23)
-		{
-			type = "Moderate";
-			src = "https://i.imgur.com/AJjtJXI.png";
-			alt = "Moderate Risk Icon";
-		}
-		else if(risk > 5 && risk <= 14)
-		{
-			type = "Low";
-			src = "https://i.imgur.com/jDQZVVJ.png";
-			alt = "Low Risk Icon";
-		}
-		else
-		{
-			type = "None";
-			src = "https://i.imgur.com/LWN9Y0B.png";
-			alt = "No Risk Icon";
-		}
-		
-		document.getElementById('end').innerHTML = "Risk type: " + type;
-		document.getElementById('endimg').setAttribute("src", src);
-		document.getElementById('endimg').setAttribute("alt", alt);
+		geneArray = [];
+		baseA = 0;
+		baseT = 0;
+		baseG = 0;
+		baseC = 0;
+		percentA = 0;
+		percentT = 0;
+		percentG = 0;
+		percentC = 0;
+		baseTotal = 0;
 	}
 	
 </script>
@@ -131,14 +153,14 @@ None
 <!--Describes the content of the pages within the app.-->
 <body>
 	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Simple Depression Test</h1>
+		<h1>DNA Sequence Composition Calculator</h1>
 	</div>
 		
 		<!--This represents the home page and contains a description of the app and its purpose.-->
 		<div id="content" class="w3-container">
-			<p>Having concerns you might be suffering from a depressive disorder? Answer a few short questions to gauge your risk.</p>
+			<p>This app determines the nitrogenous base composition of the "Uncultured Sulfate-reducing Bacterium Clone GOMGC2B07F DsrA (dsrA)" gene.</p>
 	
-			<!--The following button takes the user to the beginning of the question process.-->
+			<!--The following button takes the user to the start of the process.-->
 	
 			<a href="#one" class="w3-btn w3-grey w3-round">Begin</a>
 	
@@ -147,214 +169,42 @@ None
 			<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 			
 			
-		<!--This represents the first page containing the first question to be asked-->
+		<!--This represents the first page displaying the URL from which the sequence is obtained-->
 			<div class="page" id="one">
 	
 			<!--First question.-->
 				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Over the past two weeks, how often have you...</h1>
+					<h1>The gene sequence was obtained from the following url: </h1>
+					<a href="https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta">DsrA Gene</a>
 				</div>
 	
     				<div id="content" class="w3-container">
-        				<p>Felt significantly sad or low in spirits?</p>  
+        				<p>Continue to results page.</p>  
 		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#two"		  		class="w3-btn w3-black">Never</a>
-         				<a href="#two"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
-					<a href="#two"  onclick="increment(2);" class="w3-btn w3-black">Most of the time</a>
-					<a href="#two"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
+					<!--The following button takes the user to the final page.-->
+					
+         				<a href="#two"  onclick="getComposition();getArray(https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta);"	class="w3-btn w3-black">Determine Base Composition</a>
     				</div>
 			</div>
-			
-			
-		<!--This represents the second page containing the second question to be asked-->
+		
+		<!--This represents the final page, displaying the base composition of the gene.-->
 			<div class="page" id="two">
-	
-			<!--Second question.-->
-				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Over the past two weeks, how often have you...</h1>
-				</div>
-	
-    				<div id="content" class="w3-container">
-        				<p>Lost interest or pleasure in daily activities?</p>  
-		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#three"				class="w3-btn w3-black">Never</a>
-         				<a href="#three"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
-					<a href="#three"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
-					<a href="#three"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
-    				</div>
-			</div>
-			
-			
-		<!--This represents the third page containing the third question to be asked-->
-			<div class="page" id="three">
-	
-			<!--Third question.-->
-				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Have you...</h1>
-				</div>
-	
-    				<div id="content" class="w3-container">
-        				<p>Experienced some degree of unintentional weight loss or decrease in appetite?</p>  
-		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#four"					class="w3-btn w3-black">None of these</a>
-         				<a href="#four"  onclick="increment(1);"	class="w3-btn w3-black">Slight</a>
-         				<a href="#four"  onclick="increment(2);"	class="w3-btn w3-black">Moderate</a>
-         				<a href="#four"  onclick="increment(3);"	class="w3-btn w3-black">Severe</a>
-    				</div>
-			</div>
-			
-			
-		<!--This represents the fourth page containing the fourth question to be asked-->
-			<div class="page" id="four">
-	
-			<!--Fourth question.-->
-				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Over the past two weeks, how often have you...</h1>
-				</div>
-	
-    				<div id="content" class="w3-container">
-        				<p>Felt subdued or slower than usual?</p>  
-		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#five"					class="w3-btn w3-black">Never</a>
-         				<a href="#five"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
-					<a href="#five"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
-					<a href="#five"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
-    				</div>
-			</div>
-			
-			
-		<!--This represents the fifth page containing the fifth question to be asked-->
-			<div class="page" id="five">
-	
-			<!--Fifth question.-->
-				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Over the past two weeks, how often have you...</h1>
-				</div>
-	
-    				<div id="content" class="w3-container">
-        				<p>Felt fatigued or low energy?</p>  
-		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#six"				class="w3-btn w3-black">Never</a>
-         				<a href="#six"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
-					<a href="#six"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
-					<a href="#six"  onclick="increment(3);" class="w3-btn w3-black">All of the time</a>
-    				</div>
-			</div>
-			
-			
-		<!--This represents the sixth page containing the sixth question to be asked-->
-			<div class="page" id="six">
-	
-			<!--Sixth question.-->
-				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Over the past two weeks, how often have you...</h1>
-				</div>
-	
-    				<div id="content" class="w3-container">
-        				<p>Felt worthless or a sense of guilt?</p>  
-		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#seven"				class="w3-btn w3-black">Never</a>
-         				<a href="#seven"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
-					<a href="#seven"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
-					<a href="#seven"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
-    				</div>
-			</div>
-			
-			
-		<!--This represents the seventh page containing the seventh question to be asked-->
-			<div class="page" id="seven">
-	
-			<!--Seventh question.-->
-				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Over the past two weeks, how often have you...</h1>
-				</div>
-	
-    				<div id="content" class="w3-container">
-        				<p>Lost your ability to concentrate or felt indecisive?</p>  
-		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#eight"				class="w3-btn w3-black">Never</a>
-         				<a href="#eight"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
-					<a href="#eight"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
-					<a href="#eight"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
-    				</div>
-			</div>
-			
-			
-		<!--This represents the eighth page containing the eighth question to be asked-->
-			<div class="page" id="eight">
-	
-			<!--Eighth question.-->
-				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Over the past two weeks, how often have you...</h1>
-				</div>
-	
-    				<div id="content" class="w3-container">
-        				<p>Thought about death or suicide?</p>  
-		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#nine"						class="w3-btn w3-black">Never</a>
-         				<a href="#nine"  onclick="increment(1);"		class="w3-btn w3-black">Some of the time</a>
-					<a href="#nine"  onclick="increment(2);setSRisk();"	class="w3-btn w3-black">Most of the time</a>
-					<a href="#nine"  onclick="increment(3);setSRisk();"	class="w3-btn w3-black">All of the time</a>
-    				</div>
-			</div>
-			
-			
-		<!--This represents the ninth page containing the ninth question to be asked-->
-			<div class="page" id="nine">
-	
-			<!--Ninth question.-->
-				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Over the past two weeks, how often have you...</h1>
-				</div>
-	
-    				<div id="content" class="w3-container">
-        				<p>Had trouble sleeping?</p>  
-		
-					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
-		
-					<a href="#ten"	onclick="calculateRisk();"			class="w3-btn w3-black">Never</a>
-         				<a href="#ten"  onclick="increment(1);calculateRisk();"		class="w3-btn w3-black">Some of the time</a>
-					<a href="#ten"  onclick="increment(2);calculateRisk();"		class="w3-btn w3-black">Most of the time</a>
-					<a href="#ten"  onclick="increment(3);calculateRisk();"		class="w3-btn w3-black">All of the time</a>
-    				</div>
-			</div>
-			
-			
-		<!--This represents the results page containing the final severity of depressive risk-->
-			<div class="page" id="ten">
 				<div class="w3-container w3-flat-carrot">
 					<p id="results"><h1>Results</h1></p>
 				</div>
 	
-				<!--The following segment denotes the final piece of text that contains the respective probabilities of a cold or allergies, referencing the functions encoded at the beginning of this document.-->
+				<!--The following segment denotes the final piece of text that contains the respective base percentages and total counts of the gene.-->
 					<center>
 				<div id="content" class="w3-container">
 					<p id='end'>Results would be here</p>	
 				</div>
 			
-				<!--This is where the results icon image will be-->
+				<!--This is where the results chart image will be-->
 					<img id="endimg" src="https://i.imgur.com/rZOaHhx.png" alt="spongebob">
 				<br>
 				<br>
 	
-				<!--The following button returns the user to the home page and resets the cold and allergy counts.-->
-	
+				<!--The following button returns the user to the home page and resets the counts.-->
 				<a href="#content"  onclick="resetVariables();" class="w3-btn w3-black">Return to Home Page</a>
 					</center>
 			</div>
