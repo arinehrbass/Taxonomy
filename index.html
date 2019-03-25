@@ -62,12 +62,17 @@ None
 	{
 		var tempstorage = document.createElement('tempstorage');
 		tempstorage.innerHTML = page;
-		var contentString = tempstorage.innerText;
+		var contentString = tempstorage.textContent;
 		
 		
 		var x = contentString.indexOf("cds");
 		x += 3;
+		
+		alert(x);
+		
 		var y = contentString.indexOf("</pre>");
+		
+		alert(y);
 		
 		var textString = contentString.slice(x, y);
 				
