@@ -1,0 +1,366 @@
+<!DOCTYPE html> 
+<html> 
+<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
+ 
+THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
+ 
+ 
+Authors in chronological order of contribution:
+Tim Riedel
+Niam Kuttanna
+ 
+Further Information:
+http://diystream.cns.utexas.edu/
+
+Research Educator:
+Timothy Riedel
+triedel@utexas.edu
+ 
+Brief Description of Goal of Code:
+To calculate the user's risk of depression based on DSM-5 criteria.
+ 
+Known Issues:
+None
+-->
+   
+<!--Header displays app title at the top of the page-->
+<head> 
+      <title>Simple Depression Test</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+</head>
+
+	
+<!--Script details Javascript functions for storage functions and calculations-->	
+<script>
+	// Stores total risk score incremented by questions
+	var risk = 0;
+	
+	// Stores string of risk type
+	var type;
+	
+	// Stores whether suicide question was answered with yes
+	var suiciderisk = 0;
+	
+	// Adds a proportionate amount to risk score based on question answer
+	function increment(p1)
+	{
+		risk += p1;
+		alert(risk);
+	}
+	
+	// Changes suicide risk to 1 if question is answered with yes
+	function setSRisk()
+	{
+		suiciderisk = 1;
+	}
+	
+	// Resets risk score to zero
+	function resetVariables()
+	{
+		risk = 0;
+		suiciderisk = 0;
+	}
+	
+	// Calculates type of depressive risk and corresponding icon, with "severe" being a score above 23 (or suicide risk score of 1), "moderate" being between 14-23, "low" being between 5-14, and "none" being a score below 5
+	function calculateRisk()
+	{
+		var src = "https://i.imgur.com/rZOaHhx.png";
+		var alt = "Risk Type Icon";
+		
+		if(risk > 23 || suiciderisk == 1)
+		{
+			type = "Severe";
+			src = "https://i.imgur.com/SVbrjT2.png";
+			alt = "Severe Risk Icon";
+		}
+		else if(risk > 14 && risk <= 23)
+		{
+			type = "Moderate";
+			src = "https://i.imgur.com/AJjtJXI.png";
+			alt = "Moderate Risk Icon";
+		}
+		else if(risk > 5 && risk <= 14)
+		{
+			type = "Low";
+			src = "https://i.imgur.com/jDQZVVJ.png";
+			alt = "Low Risk Icon";
+		}
+		else
+		{
+			type = "None";
+			src = "https://i.imgur.com/LWN9Y0B.png";
+			alt = "No Risk Icon";
+		}
+		
+		document.getElementById('end').innerHTML = "Risk type: " + type;
+		document.getElementById('endimg').setAttribute("src", src);
+		document.getElementById('endimg').setAttribute("alt", alt);
+	}
+	
+</script>
+	
+	
+<!--Allows for multiple mini pages to be displayed within the single overall app, and describes the format.-->	
+<style>	
+	.body
+	{
+     		margin: 0em;
+	}
+	.page
+	{
+    		width: 100vw;
+    		height: 100vh;
+    		position: fixed;
+    		top: 0;
+    		left: -100vw;
+    		overflow-y: auto;
+    		z-index: 0;
+    		background-color: hsl(0,0%,100%);
+	}
+  	.page:target
+	{
+    		left: 0vw;
+    		z-index: 1;
+	}
+</style>
+
+	
+<!--Describes the content of the pages within the app.-->
+<body>
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Simple Depression Test</h1>
+	</div>
+		
+		<!--This represents the home page and contains a description of the app and its purpose.-->
+		<div id="content" class="w3-container">
+			<p>Having concerns you might be suffering from a depressive disorder? Answer a few short questions to gauge your risk.</p>
+	
+			<!--The following button takes the user to the beginning of the question process.-->
+	
+			<a href="#one" class="w3-btn w3-grey w3-round">Begin</a>
+	
+			<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+			<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+			
+			
+		<!--This represents the first page containing the first question to be asked-->
+			<div class="page" id="one">
+	
+			<!--First question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Over the past two weeks, how often have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Felt significantly sad or low in spirits?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#two"		  		class="w3-btn w3-black">Never</a>
+         				<a href="#two"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
+					<a href="#two"  onclick="increment(2);" class="w3-btn w3-black">Most of the time</a>
+					<a href="#two"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the second page containing the second question to be asked-->
+			<div class="page" id="two">
+	
+			<!--Second question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Over the past two weeks, how often have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Lost interest or pleasure in daily activities?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#three"				class="w3-btn w3-black">Never</a>
+         				<a href="#three"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
+					<a href="#three"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
+					<a href="#three"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the third page containing the third question to be asked-->
+			<div class="page" id="three">
+	
+			<!--Third question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Experienced some degree of unintentional weight loss or decrease in appetite?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#four"					class="w3-btn w3-black">None of these</a>
+         				<a href="#four"  onclick="increment(1);"	class="w3-btn w3-black">Slight</a>
+         				<a href="#four"  onclick="increment(2);"	class="w3-btn w3-black">Moderate</a>
+         				<a href="#four"  onclick="increment(3);"	class="w3-btn w3-black">Severe</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the fourth page containing the fourth question to be asked-->
+			<div class="page" id="four">
+	
+			<!--Fourth question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Over the past two weeks, how often have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Felt subdued or slower than usual?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#five"					class="w3-btn w3-black">Never</a>
+         				<a href="#five"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
+					<a href="#five"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
+					<a href="#five"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the fifth page containing the fifth question to be asked-->
+			<div class="page" id="five">
+	
+			<!--Fifth question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Over the past two weeks, how often have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Felt fatigued or low energy?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#six"				class="w3-btn w3-black">Never</a>
+         				<a href="#six"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
+					<a href="#six"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
+					<a href="#six"  onclick="increment(3);" class="w3-btn w3-black">All of the time</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the sixth page containing the sixth question to be asked-->
+			<div class="page" id="six">
+	
+			<!--Sixth question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Over the past two weeks, how often have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Felt worthless or a sense of guilt?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#seven"				class="w3-btn w3-black">Never</a>
+         				<a href="#seven"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
+					<a href="#seven"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
+					<a href="#seven"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the seventh page containing the seventh question to be asked-->
+			<div class="page" id="seven">
+	
+			<!--Seventh question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Over the past two weeks, how often have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Lost your ability to concentrate or felt indecisive?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#eight"				class="w3-btn w3-black">Never</a>
+         				<a href="#eight"  onclick="increment(1);"	class="w3-btn w3-black">Some of the time</a>
+					<a href="#eight"  onclick="increment(2);"	class="w3-btn w3-black">Most of the time</a>
+					<a href="#eight"  onclick="increment(3);"	class="w3-btn w3-black">All of the time</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the eighth page containing the eighth question to be asked-->
+			<div class="page" id="eight">
+	
+			<!--Eighth question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Over the past two weeks, how often have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Thought about death or suicide?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#nine"						class="w3-btn w3-black">Never</a>
+         				<a href="#nine"  onclick="increment(1);"		class="w3-btn w3-black">Some of the time</a>
+					<a href="#nine"  onclick="increment(2);setSRisk();"	class="w3-btn w3-black">Most of the time</a>
+					<a href="#nine"  onclick="increment(3);setSRisk();"	class="w3-btn w3-black">All of the time</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the ninth page containing the ninth question to be asked-->
+			<div class="page" id="nine">
+	
+			<!--Ninth question.-->
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Over the past two weeks, how often have you...</h1>
+				</div>
+	
+    				<div id="content" class="w3-container">
+        				<p>Had trouble sleeping?</p>  
+		
+					<!--The following buttons increase depressive risk proportionately and send the user to the next page.-->
+		
+					<a href="#ten"	onclick="calculateRisk();"			class="w3-btn w3-black">Never</a>
+         				<a href="#ten"  onclick="increment(1);calculateRisk();"		class="w3-btn w3-black">Some of the time</a>
+					<a href="#ten"  onclick="increment(2);calculateRisk();"		class="w3-btn w3-black">Most of the time</a>
+					<a href="#ten"  onclick="increment(3);calculateRisk();"		class="w3-btn w3-black">All of the time</a>
+    				</div>
+			</div>
+			
+			
+		<!--This represents the results page containing the final severity of depressive risk-->
+			<div class="page" id="ten">
+				<div class="w3-container w3-flat-carrot">
+					<p id="results"><h1>Results</h1></p>
+				</div>
+	
+				<!--The following segment denotes the final piece of text that contains the respective probabilities of a cold or allergies, referencing the functions encoded at the beginning of this document.-->
+					<center>
+				<div id="content" class="w3-container">
+					<p id='end'>Results would be here</p>	
+				</div>
+			
+				<!--This is where the results icon image will be-->
+					<img id="endimg" src="https://i.imgur.com/rZOaHhx.png" alt="spongebob">
+				<br>
+				<br>
+	
+				<!--The following button returns the user to the home page and resets the cold and allergy counts.-->
+	
+				<a href="#content"  onclick="resetVariables();" class="w3-btn w3-black">Return to Home Page</a>
+					</center>
+			</div>
+			
+			
+	</div>
+</body>
+	
+</html>
