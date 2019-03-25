@@ -60,8 +60,8 @@ None
 	// Fills the array with the sequence extracted from the specific pre-determined url
 	function getArray(page)
 	{
-		var x = page.indexOf("<pre>");
-		x += 5;
+		var x = page.indexOf("cds");
+		x += 3;
 		var y = page.indexOf("</pre>");
 		
 		for(var i = x; i < y-1; i++)
