@@ -38,6 +38,9 @@ None
 	// Instantiates array containing all base letters in a gene
 	var geneArray = [];
 	
+	// Stores sequence of letters
+	var sequenceString = "";
+	
 	// Contains total count of base A occurrences and percent A respectively
 	var baseA = 0;
 	var percentA = 0;
@@ -57,28 +60,23 @@ None
 	// Contains total base count
 	var baseTotal = 0;
 	
-	// Calculates and returns the percentages and counts of each base in a sequence
-	function getComposition()
+	
+	// Converts a string into an array
+	function getArray(stringvar)
 	{
-		// Converts sequence string into array of letters
-		var contentString = 	`ACTGGAAGCACGGCGGCATCGTGGGCGTGCTGGGTTATGGTGGAGGCGTCATCGGCCGCTATTGCGACCG
-					GCCGGACCTCTTCCCAGAAGTGGCCCACTTTCACACCATGCGCATCAACCAGCCCTCGAGCAAGTTTTAC
-					AATACCGACATCCTGAAAAGACTCCGTGAACTGTGGGAAAGGCGCGGCAGCGGCCTCACCAACATGCATG
-					GTTCAACGGGGGACATCATCCTGCTCGGTACCACCACCAATGAACTGGAGCCCATATTCTATGAATTGAC
-					CCACGATTTGAATATGGACCTGGGCGGTTCGGGCTCCAACTTGCGCACACCGAGCTGCTGTCTGGGCAAG
-					GCCCGTTGCGAGTGGTCCTGCCTTGACACTCAGGCCATCACCAACGACATTACCCATGAGTTCCAGGACG
-					AGCCTTATCGACCCGCCTTTCCTTACAAGTTCAAGTTCAAGACCTCCGGCTGCCCCAACGACTGTGTGGC
-					CGCCATTGCCCGGGCCGACTGCTCCATCATCGGCACCTGGCGCGATCAGATCCGCATCGACCAGGAGGCT
-					GTAAAGGCCTACGCTGCCGGGGAACTGGCCCCCAACGGCAATGCCTTCGATACGGGACCAAGTGCTCTGG
-					ACATCCAGAAAGAGGTCTGTGACCTGTGCCCCACCCGTTGCATGGAATGGGACGGCAAGACCCTGAAATC
-					TGGGGATGAAGAGTGCAC`;
-		var x = 0;		
-		var y = contentString.length;
-				
-		for(var i = x; i < y; i++)
+		var arrayResult = [];
+		
+		for(var i = 0; i < stringvar.length - 1; i++)
 		{
-			geneArray[i] = contentString.substring(i, i+1);
+			arrayResult[i] = stringvar.substring(i, i+1);
 		}
+		return arrayResult;
+	}
+	
+	// Calculates and returns the percentages and counts of each base in a sequence
+	function getComposition(stringSequence)
+	{
+		geneArray = getArray(stringSequence);
 		
 		// Determines instances of A, T, G, and C in gene and stores to variables
 		for(var index = 0; index < geneArray.length; index++)
@@ -128,6 +126,17 @@ None
 		percentC = 0;
 		baseTotal = 0;
 	}
+	
+	
+	// Need to build function to retrieve data from website
+	
+	function 
+	
+	
+	
+	
+	
+	
 	
 </script>
 	
@@ -190,7 +199,7 @@ None
         				<p>Continue to results page.</p>  
 		
 					<!--The following button takes the user to the final page.-->
-					
+<!--This will need to be changed-->					
          				<a href="#two"  onclick="getComposition();"	class="w3-btn w3-black">Determine Base Composition</a>
     				</div>
 			</div>
