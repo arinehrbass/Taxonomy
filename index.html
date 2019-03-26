@@ -143,6 +143,9 @@ None
 		
 		var url = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&QUERY=" + searchString + "&DATABASE=nr&CMD=Put";
 		
+		// Ensures correct url is being requested
+		console.log(url);
+		
 		var rid = "";
 		
 		request.open('GET', url, true);
