@@ -157,12 +157,11 @@ None
 		
 		request.onload = function()
 		{
-			var x = document.createElement('x');
-			x.innerHTML = request.responseText;
+			var x = request.responseText;
 			
 			var endIndex = x.indexOf(" id=\"rid\" ");
-			var index = endIndex - 13;
-			endIndex -= 2;
+			var index = endIndex - 12;
+			endIndex--;
 			
 			rid = x.slice(index, endIndex);
 			
