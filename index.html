@@ -132,6 +132,8 @@ None
 	
 	function retrieveData(searchString)
 	{
+		console.log('Running function properly.');
+		
 		var request = new XMLHttpRequest();
 		var searchQuery = searchString;
 		var url = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&QUERY=" + searchString + "&DATABASE=nr&CMD=Put";
