@@ -57,21 +57,10 @@ None
 	// Contains total base count
 	var baseTotal = 0;
 	
-	getPageInfo()
-	function getPageInfo() {
-		var XMLRequest = new XMLHttpRequest();
-		XMLRequest.open('GET', "https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta", true);
-		XMLRequest.send(null);
-		console.log(XMLRequest.responseText);
-		if(XMLRequest.status == 200)  
-		   return dump(XMLRequest.responseText);
-	}
-		
-		
-	
-	// Fills the array with the sequence extracted from the specific pre-determined url
-	function getArray(page)
+	// Calculates and returns the percentages and counts of each base in a sequence
+	function getComposition()
 	{
+		// Converts sequence string into array of letters
 		var contentString = 	`ACTGGAAGCACGGCGGCATCGTGGGCGTGCTGGGTTATGGTGGAGGCGTCATCGGCCGCTATTGCGACCG
 					GCCGGACCTCTTCCCAGAAGTGGCCCACTTTCACACCATGCGCATCAACCAGCCCTCGAGCAAGTTTTAC
 					AATACCGACATCCTGAAAAGACTCCGTGAACTGTGGGAAAGGCGCGGCAGCGGCCTCACCAACATGCATG
@@ -83,25 +72,14 @@ None
 					GTAAAGGCCTACGCTGCCGGGGAACTGGCCCCCAACGGCAATGCCTTCGATACGGGACCAAGTGCTCTGG
 					ACATCCAGAAAGAGGTCTGTGACCTGTGCCCCACCCGTTGCATGGAATGGGACGGCAAGACCCTGAAATC
 					TGGGGATGAAGAGTGCAC`;
-		var x = 0;
-		
-		alert(x);
-		
+		var x = 0;		
 		var y = contentString.size();
-		
-		alert(y);
-		
-		var textString = contentString.slice(x, y);
 				
 		for(var i = x; i < y-1; i++)
 		{
-			geneArray[i] = textString.slice(i, i+1);
+			geneArray[i] = contentString.substring(i, i+1);
 		}
-	}
-	
-	// Calculates and returns the percentages and counts of each base in a sequence
-	function getComposition()
-	{
+		
 		// Determines instances of A, T, G, and C in gene and stores to variables
 		for(var index = 0; index < geneArray.length; index++)
 		{
@@ -191,7 +169,7 @@ None
 	
 			<!--The following button takes the user to the start of the process.-->
 	
-			<a href="#one" class="w3-btn w3-grey w3-round" onclick="getArray('https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta');">Begin</a>
+			<a href="#one" class="w3-btn w3-grey w3-round">Begin</a>
 	
 			<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
