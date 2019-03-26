@@ -143,7 +143,7 @@ None
 		request.onload = function()
 		{
 			var x = document.createElement('x');
-			x.innerHTML = request;
+			x.innerHTML = request.responseText;
 			
 			var endIndex = x.indexOf(" id=\"rid\" ");
 			var index = endIndex - 13;
@@ -224,11 +224,11 @@ None
     				<div id="content" class="w3-container">
 					<p>The gene sequence should be obtained from the following url: </p>
 					<a href="https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta">DsrA Gene</a>
-        				<p>Continue to results page.</p>  
+        				<p>Continue to results page.</p> 
 		
 					<!--The following button takes the user to the final page.-->
 <!--This will need to be changed-->					
-         				<a href="#two"  onclick="retrieveData("EU779914.1");"	class="w3-btn w3-black">Determine Base Composition</a>
+         				<a href="#two"  onclick="retrieveData('EU779914.1');"	class="w3-btn w3-black">Determine Base Composition</a>
     				</div>
 			</div>
 		
