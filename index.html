@@ -149,8 +149,10 @@ None
 		var rid = "";
 		
 		request.open('GET', url, true);
+		request.send();
 		
 		// Ensures request is successful
+		console.log(request.readyState);
 		console.log(request.responseText);
 		
 		request.onload = function()
