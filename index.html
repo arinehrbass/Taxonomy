@@ -60,7 +60,7 @@ None
 	getPageInfo()
 	function getPageInfo() {
 		var XMLRequest = new XMLHttpRequest();
-		XMLRequest.open(GET, "https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta", true);
+		XMLRequest.open('GET', "https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta", true);
 		XMLRequest.send(null);
 		console.log(XMLRequest.responseText);
 		if(XMLRequest.status == 200)  
