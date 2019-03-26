@@ -128,11 +128,36 @@ None
 	}
 	
 	
-	// Need to build function to retrieve data from website
+	// Need to build function to retrieve data from website - search string should be "EU779914.1" for dsrA gene
 	
-	function 
-	
-	
+	function retrieveData(searchString)
+	{
+		var request = new XMLHttpRequest();
+		var searchQuery = searchString;
+		var url = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&QUERY=" + searchString + "&DATABASE=nr&CMD=Put";
+		
+		var rid = "";
+		
+		request.open('GET', url, true);
+		
+		request.onload = function()
+		{
+			var x = document.createElement('x');
+			x.innerHTML = request;
+			
+			var endIndex = x.indexOf(" id=\"rid\" ");
+			var index = endIndex - 13;
+			endIndex -= 2;
+			
+			rid = x.slice(index, endIndex);
+			
+			alert(rid);
+		}
+		
+		
+		// Returns composition of string of base letters
+		getComposition(sequenceString);
+	}
 	
 	
 	
@@ -185,6 +210,9 @@ None
 			<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 			
 			
+			
+			
+			
 		<!--This represents the first page displaying the URL from which the sequence is obtained-->
 			<div class="page" id="one">
 	
@@ -194,16 +222,19 @@ None
 				</div>
 	
     				<div id="content" class="w3-container">
-					<p>The gene sequence was obtained from the following url: </p>
+					<p>The gene sequence should be obtained from the following url: </p>
 					<a href="https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta">DsrA Gene</a>
         				<p>Continue to results page.</p>  
 		
 					<!--The following button takes the user to the final page.-->
 <!--This will need to be changed-->					
-         				<a href="#two"  onclick="getComposition();"	class="w3-btn w3-black">Determine Base Composition</a>
+         				<a href="#two"  onclick="retrieveData("EU779914.1");"	class="w3-btn w3-black">Determine Base Composition</a>
     				</div>
 			</div>
 		
+			
+			
+			
 		<!--This represents the final page, displaying the base composition of the gene.-->
 			<div class="page" id="two">
 				<div class="w3-container w3-flat-carrot">
