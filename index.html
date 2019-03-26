@@ -57,21 +57,37 @@ None
 	// Contains total base count
 	var baseTotal = 0;
 	
+	getPageInfo()
+	function getPageInfo() {
+		var XMLRequest = new XMLHttpRequest();
+		XMLRequest.open(GET, "https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta", true);
+		XMLRequest.send(null);
+		console.log(XMLRequest.responseText);
+		if(XMLRequest.status == 200)  
+		   return dump(XMLRequest.responseText);
+	}
+		
+		
+	
 	// Fills the array with the sequence extracted from the specific pre-determined url
 	function getArray(page)
 	{
-		var tempstorage = document.createElement('tempstorage');
-		tempstorage.innerHTML = page;
-		var contentString = tempstorage.textContent;
-		
-		
-		var x = contentString.indexOf("ACTG");
-		x += 3;
+		var contentString = 	`ACTGGAAGCACGGCGGCATCGTGGGCGTGCTGGGTTATGGTGGAGGCGTCATCGGCCGCTATTGCGACCG
+					GCCGGACCTCTTCCCAGAAGTGGCCCACTTTCACACCATGCGCATCAACCAGCCCTCGAGCAAGTTTTAC
+					AATACCGACATCCTGAAAAGACTCCGTGAACTGTGGGAAAGGCGCGGCAGCGGCCTCACCAACATGCATG
+					GTTCAACGGGGGACATCATCCTGCTCGGTACCACCACCAATGAACTGGAGCCCATATTCTATGAATTGAC
+					CCACGATTTGAATATGGACCTGGGCGGTTCGGGCTCCAACTTGCGCACACCGAGCTGCTGTCTGGGCAAG
+					GCCCGTTGCGAGTGGTCCTGCCTTGACACTCAGGCCATCACCAACGACATTACCCATGAGTTCCAGGACG
+					AGCCTTATCGACCCGCCTTTCCTTACAAGTTCAAGTTCAAGACCTCCGGCTGCCCCAACGACTGTGTGGC
+					CGCCATTGCCCGGGCCGACTGCTCCATCATCGGCACCTGGCGCGATCAGATCCGCATCGACCAGGAGGCT
+					GTAAAGGCCTACGCTGCCGGGGAACTGGCCCCCAACGGCAATGCCTTCGATACGGGACCAAGTGCTCTGG
+					ACATCCAGAAAGAGGTCTGTGACCTGTGCCCCACCCGTTGCATGGAATGGGACGGCAAGACCCTGAAATC
+					TGGGGATGAAGAGTGCAC`;
+		var x = 0;
 		
 		alert(x);
 		
-		var y = contentString.indexOf("CAC");
-		y += 2;
+		var y = contentString.size();
 		
 		alert(y);
 		
@@ -175,7 +191,7 @@ None
 	
 			<!--The following button takes the user to the start of the process.-->
 	
-			<a href="#one" class="w3-btn w3-grey w3-round">Begin</a>
+			<a href="#one" class="w3-btn w3-grey w3-round" onclick="getArray('https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta');">Begin</a>
 	
 			<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
@@ -197,7 +213,7 @@ None
 		
 					<!--The following button takes the user to the final page.-->
 					
-         				<a href="#two"  onclick="getComposition();getArray('https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta');"	class="w3-btn w3-black">Determine Base Composition</a>
+         				<a href="#two"  onclick="getComposition();"	class="w3-btn w3-black">Determine Base Composition</a>
     				</div>
 			</div>
 		
