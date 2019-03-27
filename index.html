@@ -175,21 +175,20 @@ None
 			
 			
 			
-			await sleep(rtoe * 1001);
-			
-			
-			
-			var secondurl = "https://www.ncbi.nlm.nih.gov/nucleotide/" + searchQuery + "?report=genbank&log$=nucltop&blast_rank=1&RID=" + rid;
-			console.log(secondurl);
-			
-			// Runs search using obtained RID
-			request.open('GET', secondurl, true);
-			request.send();
+			setTimeout( function() =
+				{
+					var secondurl = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&RID=" + rid;
+					console.log(secondurl);
 
-			request.onload = function()
-			{
-				
-			}
+					// Runs search using obtained RID
+					request.open('GET', secondurl, true);
+					request.send();
+
+					request.onload = function()
+					{
+						console.log(request.responseText);
+					}
+				}, rtoe * 1001 );
 		}
 		
 		
