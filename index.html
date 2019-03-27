@@ -147,13 +147,11 @@ None
 		console.log(url);
 		
 		var rid = "";
+		var rtoe = 0;
 		
+		// Runs search to find RID
 		request.open('GET', url, true);
 		request.send();
-		
-		// Ensures request is successful
-		console.log(request.readyState);
-		console.log(request.responseText);
 		
 		request.onload = function()
 		{
@@ -166,10 +164,28 @@ None
 			rid = x.slice(index, endIndex);
 			
 			alert(rid);
-		}
-		if(request.readyState == 4)
-		{
-			console.log(request.responseText);
+			
+			index = x.indexOf("RTOE =");
+			index += 7;
+			endIndex = x.indexOf("QBlastInfoEnd");
+			
+			rtoe = parseInt(x.slice(index, endIndex));
+			
+			alert(rtoe);
+			
+			
+			
+			var secondurl = "https://www.ncbi.nlm.nih.gov/nucleotide/" + searchQuery + "?report=genbank&log$=nucltop&blast_rank=1&RID=" + rid;
+			console.log(secondurl);
+			
+			// Runs search using obtained RID
+			request.open('GET', secondurl, true);
+			request.send();
+
+			request.onload = function()
+			{
+				
+			}
 		}
 		
 		
