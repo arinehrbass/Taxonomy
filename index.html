@@ -207,6 +207,7 @@ None
 		}
 	}
 	
+	// Retrieves a locally sourced file's content
 	function retrieveLocalData(filename)
 	{
 		var filecontent = "";
@@ -217,9 +218,9 @@ None
 		
 		newFile.onreadystatechange = function()
 		{
-			console.log(newFile.readystate);
+			console.log("Ready state is " + newFile.readyState);
 			
-			if(newFile.readystate === 4 && newFile.status === 200)
+			if(newFile.readyState == 4 || newFile.readyState == 0)
 			{
 				console.log("File status is correct.");
 				
