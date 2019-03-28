@@ -211,7 +211,7 @@ None
 	{
 		var filecontent = "";
 		var newFile = new XMLHttpRequest();
-		newFile.open('GET', filename, false);
+		newFile.open('GET', filename, true);
 		
 		newFile.onreadystatechange = function()
 		{
