@@ -219,17 +219,14 @@ None
 		{
 			console.log(newFile.readystate);
 			
-			if(newFile.readystate === 4)
+			if(newFile.readystate === 4 && newFile.status === 200)
 			{
-				if(newFile.status == 0 && newFile.status === 200)
-				{
-					console.log("File status is correct.");
-					
-					filecontent = newFile.responseText;
-					console.log(filecontent);
-					
-					sequenceString = filecontent;
-				}
+				console.log("File status is correct.");
+				
+				filecontent = newFile.responseText;
+				console.log(filecontent);
+				
+				sequenceString = filecontent;
 			}
 		}
 		newFile.send();
