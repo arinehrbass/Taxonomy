@@ -199,9 +199,6 @@ None
 				
 			// This section retrieves the sequence data from a local text file for analysis
 					retrieveLocalData(fileDetails);
-
-					// Returns composition of string of base letters
-					getComposition(sequenceString);
 				
 				}, rtoe * 1001 );
 		}
@@ -228,6 +225,7 @@ None
 				console.log(filecontent);
 				
 				sequenceString = filecontent;
+				getComposition(sequenceString);
 			}
 		}
 		newFile.send();
@@ -316,7 +314,7 @@ None
 				<!--The following segment denotes the final piece of text that contains the respective base percentages and total counts of the gene.-->
 					<center>
 				<div id="content" class="w3-container">
-					<p id='end'>Results would be here</p>	
+					<p id='end'>Please allow a few seconds for the results to appear here.</p>	
 				</div>
 			
 				<!--This is where the results chart image will be-->
