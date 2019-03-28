@@ -213,6 +213,8 @@ None
 		var newFile = new XMLHttpRequest();
 		newFile.open('GET', filename, true);
 		
+		console.log(File retrieval function is working! File name: filename);
+		
 		newFile.onreadystatechange = function()
 		{
 			if(newFile.readystate === 4)
