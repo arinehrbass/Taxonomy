@@ -196,15 +196,15 @@ None
 					{
 						console.log(request.responseText);
 					}
+				
+			// This section retrieves the sequence data from a local text file for analysis
+					retrieveLocalData(fileDetails);
+
+					// Returns composition of string of base letters
+					getComposition(sequenceString);
+				
 				}, rtoe * 1001 );
 		}
-		
-	// This section retrieves the sequence data from a local text file for analysis
-		
-		retrieveLocalData(fileDetails);
-		
-		// Returns composition of string of base letters
-		getComposition(sequenceString);
 	}
 	
 	function retrieveLocalData(filename)
