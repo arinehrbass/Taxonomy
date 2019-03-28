@@ -73,6 +73,8 @@ None
 		{
 			arrayResult[i] = stringvar.substring(i, i+1);
 		}
+		console.log(arrayResult[arrayResult.length]);
+		
 		return arrayResult;
 	}
 	
@@ -82,7 +84,7 @@ None
 		geneArray = getArray(stringSequence);
 		
 		// Determines instances of A, T, G, and C in gene and stores to variables
-		for(var index = 0; index < geneArray.length + 1; index++)
+		for(var index = 0; index < geneArray.length; index++)
 		{
 			if(geneArray[index] === "A")
 			{
