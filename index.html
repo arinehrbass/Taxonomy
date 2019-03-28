@@ -41,6 +41,9 @@ None
 	// Stores sequence of letters
 	var sequenceString = "";
 	
+	// Stores location and name of locally hosted file
+	var fileDetails = "file:///C:\Users\Niam\Downloads\University Stuff\sequence.txt";
+	
 	// Contains total count of base A occurrences and percent A respectively
 	var baseA = 0;
 	var percentA = 0;
@@ -128,10 +131,15 @@ None
 	}
 	
 	
-	// Need to build function to retrieve data from website - search string should be "EU779914.1" for dsrA gene
+	// Retrieves sequence data from website - search string should be "EU779914.1" for dsrA gene
+	// NOT FULLY FUNCTIONAL - sequence data is not accessible in source HTML
+	// This function obtains the RID and RTOE to show that it has the ability to do so
+	// However, sequence data is obtained from a local text file to circumvent this issue
 	
 	function retrieveData(searchString)
 	{
+	// This section was intended to retrieve data from the NCBI source; however, it simply obtains the gene article, as the sequence data within is inaccessible
+		
 		// Ensures function initiates correctly
 		console.log('Starting function properly.');
 		
@@ -191,12 +199,35 @@ None
 				}, rtoe * 1001 );
 		}
 		
+	// This section retrieves the sequence data from a local text file for analysis
+		
+		retrieveLocalData(fileDetails);
 		
 		// Returns composition of string of base letters
 		getComposition(sequenceString);
 	}
 	
-	
+	function retrieveLocalData(filename)
+	{
+		var filecontent = "";
+		var newFile = new XMLHttpRequest();
+		newFile.open('GET', filename, false);
+		
+		newFile.onreadystatechange = function()
+		{
+			if(newFile.readystate === 4)
+			{
+				if(newFile.status == 0 && newFile.status === 200)
+				{
+					filecontent = newFile.responseText;
+					console.log(filecontent);
+					
+					sequenceString = filecontent;
+				}
+			}
+		}
+		newFile.send();
+	}
 	
 	
 	
