@@ -73,7 +73,6 @@ None
 		{
 			arrayResult[i] = stringvar.substring(i, i+1);
 		}
-		console.log(arrayResult[arrayResult.length - 1]);
 		
 		return arrayResult;
 	}
@@ -173,7 +172,7 @@ None
 			
 			rid = x.slice(index, endIndex);
 			
-			alert(rid);
+			alert("Search RID: " + rid);
 			
 			index = x.indexOf("RTOE =");
 			index += 7;
@@ -181,7 +180,7 @@ None
 			
 			rtoe = parseInt(x.slice(index, endIndex));
 			
-			alert(rtoe);
+			alert("Estimated total search time remaining: " + rtoe + "seconds");
 			
 			
 			
@@ -294,7 +293,7 @@ None
 				</div>
 	
     				<div id="content" class="w3-container">
-					<p>The gene sequence should be obtained from the following url: </p>
+					<p>The gene sequence is be obtained from the following url, but is stored in a local repository text file: </p>
 					<a href="https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta">DsrA Gene</a>
         				<p>Continue to results page.</p> 
 		
