@@ -54,6 +54,7 @@ None
 			if(possibilities[i].equalsIgnoreCase(speciesName))
 			{
 				possibilities.splice(i, 1);
+				i--;
 			}
 		}
 	}
@@ -84,9 +85,8 @@ None
 	// Resets all variables to their default state
 	function home()
 	{
-		lastpage = "home";
 		possibilities = speciesList;
-		lastChange = "";
+		lastChange = [];
 	}
 </script>
 	
@@ -161,7 +161,7 @@ None
 		
 
 					<a href="#two" onclick=" ;"	class="w3-btn w3-black">              </a>
-					<a href="#home"	onclick="home();" class="w3-btn w3-black">Return to Home Page</a>
+					<a href="#home"	onclick="home();" class="w3-btn w3-black">Home Page</a>
     				</div>
 			</div>
 		
@@ -179,7 +179,7 @@ None
 				
 				<a href="#content" onclick="         ;" class="w3-btn w3-black">          </a>
 				<a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-black">Go Back</a>
-				<a href="#home"	onclick="home();" class="w3-btn w3-black">Return to Home Page</a>
+				<a href="#home"	onclick="home();" class="w3-btn w3-black">Home Page</a>
 			</div>
 			
 			
@@ -192,6 +192,8 @@ None
 				</div>
 				
 				<p id="results">		</p>
+				
+				<a href="#home" onclick="home();" class="w3-btn w3-black">Home Page</a>
 			</div>
 			
 			
