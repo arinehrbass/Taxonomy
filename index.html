@@ -17,7 +17,7 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-To determine the base composition of a given DNA sequence.
+To determine the most likely species of an organism via a series of taxonomic questions.
  
 Known Issues:
 None
@@ -25,7 +25,7 @@ None
    
 <!--Header displays app title at the top of the page-->
 <head> 
-      <title>DNA Sequence Composition Calculator</title>  
+      <title>Taxonomic Quiz</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
@@ -35,204 +35,6 @@ None
 	
 <!--Script details Javascript functions for storage functions and calculations-->	
 <script>
-	// Instantiates array containing all base letters in a gene
-	var geneArray = [];
-	
-	// Stores sequence of letters
-	var sequenceString = "";
-	
-	// Stores location and name of locally hosted file
-	var fileDetails = "https://raw.githubusercontent.com/Niam-Sword/App5/master/sequence.txt";
-	
-	// Contains total count of base A occurrences and percent A respectively
-	var baseA = 0;
-	var percentA = 0;
-	
-	// Contains total count of base T occurrences and percent T respectively
-	var baseT = 0;
-	var percentT = 0;
-	
-	// Contains total count of base G occurrences and percent G respectively
-	var baseG = 0;
-	var percentG = 0;
-	
-	// Contains total count of base C occurrences and percent C respectively
-	var baseC = 0;
-	var percentC = 0;
-	
-	// Contains total base count
-	var baseTotal = 0;
-	
-	
-	// Converts a string into an array
-	function getArray(stringvar)
-	{
-		var arrayResult = [];
-		
-		for(var i = 0; i < stringvar.length; i++)
-		{
-			arrayResult[i] = stringvar.substring(i, i+1);
-		}
-		
-		return arrayResult;
-	}
-	
-	// Calculates and returns the percentages and counts of each base in a sequence
-	function getComposition(stringSequence)
-	{
-		geneArray = getArray(stringSequence);
-		
-		// Determines instances of A, T, G, and C in gene and stores to variables
-		for(var index = 0; index < geneArray.length; index++)
-		{
-			if(geneArray[index] === "A")
-			{
-				baseA++;
-			}
-			else if(geneArray[index] === "T")
-			{
-				baseT++;
-			}
-			else if(geneArray[index] === "G")
-			{
-				baseG++;
-			}
-			else if(geneArray[index] === "C")
-			{
-				baseC++;
-			}
-		}
-		
-		// Calculates total base count
-		baseTotal = baseA + baseT + baseG + baseC;
-		
-		// Calculates percent composition of each base
-		percentA = (baseA / baseTotal) * 100;
-		percentT = (baseT / baseTotal) * 100;
-		percentG = (baseG / baseTotal) * 100;
-		percentC = (baseC / baseTotal) * 100;
-		
-		// Prints final composition results
-		document.getElementById("end").innerHTML = "BASE COMPOSITION: <br>" + "Total Base Count: " + baseTotal + "<br>Adenine Composition: " + percentA + "% - (" + baseA + " occurrences)" + "<br>Thymine Composition: " + percentT + "% - (" + baseT + " occurrences)" + "<br>Guanine Composition: " + percentG + "% - (" + baseG + " occurrences)" + "<br>Cytosine Composition: " + percentC + "% - (" + baseC + " occurrences)";
-	}
-	
-	// Resets all variables to 0 or empty
-	function resetVariables()
-	{
-		geneArray = [];
-		baseA = 0;
-		baseT = 0;
-		baseG = 0;
-		baseC = 0;
-		percentA = 0;
-		percentT = 0;
-		percentG = 0;
-		percentC = 0;
-		baseTotal = 0;
-	}
-	
-	
-	// Retrieves sequence data from website - search string should be "EU779914.1" for dsrA gene
-	// NOT FULLY FUNCTIONAL - sequence data is not accessible in source HTML
-	// This function obtains the RID and RTOE to show that it has the ability to do so
-	// However, sequence data is obtained from a local text file to circumvent this issue
-	
-	function retrieveData(searchString)
-	{
-	// This section was intended to retrieve data from the NCBI source; however, it simply obtains the gene article, as the sequence data within is inaccessible
-		
-		// Ensures function initiates correctly
-		console.log('Starting function properly.');
-		
-		var request = new XMLHttpRequest();
-		var searchQuery = searchString;
-		
-		// Ensures searchQuery is correct
-		console.log('searchQuery: ' + searchQuery);
-		
-		var url = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&QUERY=" + searchString + "&DATABASE=nr&CMD=Put";
-		
-		// Ensures correct url is being requested
-		console.log(url);
-		
-		var rid = "";
-		var rtoe = 0;
-		
-		// Runs search to find RID
-		request.open('GET', url, true);
-		request.send();
-		
-		request.onload = function()
-		{
-			var x = request.responseText;
-			
-			var endIndex = x.indexOf(" id=\"rid\" ");
-			var index = endIndex - 12;
-			endIndex--;
-			
-			rid = x.slice(index, endIndex);
-			
-			alert("Search RID: " + rid);
-			
-			index = x.indexOf("RTOE =");
-			index += 7;
-			endIndex = x.indexOf("QBlastInfoEnd");
-			
-			rtoe = parseInt(x.slice(index, endIndex));
-			
-			alert("Estimated total search time remaining: " + rtoe + " seconds");
-			
-			
-			
-			setTimeout( function()
-				{
-					var secondurl = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&RID=" + rid;
-					console.log(secondurl);
-
-					// Runs search using obtained RID
-					request.open('GET', secondurl, true);
-					request.send();
-
-					request.onload = function()
-					{
-						console.log(request.responseText);
-					}
-				
-			// This section retrieves the sequence data from a local text file for analysis
-					retrieveLocalData(fileDetails);
-				
-				}, rtoe * 1001 );
-		}
-	}
-	
-	// Retrieves a locally sourced file's content
-	function retrieveLocalData(filename)
-	{
-		var filecontent = "";
-		var newFile = new XMLHttpRequest();
-		newFile.open('GET', filename, true);
-		
-		console.log("File retrieval function is working! File name: " + filename);
-		
-		newFile.onreadystatechange = function()
-		{
-			console.log("Ready state is " + newFile.readyState);
-			
-			if(newFile.readyState == 4 || newFile.readyState == 0)
-			{
-				console.log("File status is correct.");
-				
-				filecontent = newFile.responseText;
-				console.log(filecontent);
-				
-				sequenceString = filecontent;
-				getComposition(sequenceString);
-			}
-		}
-		newFile.send();
-	}
-	
-	
 	
 </script>
 	
@@ -265,67 +67,57 @@ None
 <!--Describes the content of the pages within the app.-->
 <body>
 	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>DNA Sequence Composition Calculator</h1>
+		<h1>Taxonomic Quiz</h1>
 	</div>
 		
 		<!--This represents the home page and contains a description of the app and its purpose.-->
 		<div id="content" class="w3-container">
-			<p>This app determines the nitrogenous base composition of the "Uncultured Sulfate-reducing Bacterium Clone GOMGC2B07F DsrA (dsrA)" gene.</p>
+			<p>This app determines the most likely species of an organism based on answers to a series of taxonomic questions.</p>
 	
 			<!--The following button takes the user to the start of the process.-->
 	
 			<a href="#one" class="w3-btn w3-grey w3-round">Begin</a>
 	
-			<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
-			<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+			<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative Urban Ecosystems Stream at The University of Texas at 		Austin. Members of the UE Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
 			
 			
 			
 			
 			
-		<!--This represents the first page displaying the URL from which the sequence is obtained-->
+			
+			
+			
+		<!--This represents the first page with the first question to be asked.-->
 			<div class="page" id="one">
 	
 			<!--First question.-->
 				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Source</h1>
+					<h1>Question 1</h1>
 				</div>
 	
     				<div id="content" class="w3-container">
-					<p>The gene sequence is be obtained from the following url, but is stored in a local repository text file: </p>
-					<a href="https://www.ncbi.nlm.nih.gov/nuccore/193245035?report=fasta">DsrA Gene</a>
-        				<p>Continue to results page.</p> 
+					<p>            </p>
+					
+        				<p>        </p> 
 		
 					<!--The following button takes the user to the final page.-->
-<!--This will need to be changed-->					
-         				<a href="#two"  onclick="retrieveData('EU779914.1');"	class="w3-btn w3-black">Determine Base Composition</a>
+         				<a href="#two"  onclick=" ;"	class="w3-btn w3-black">              </a>
     				</div>
 			</div>
 		
 			
 			
 			
-		<!--This represents the final page, displaying the base composition of the gene.-->
+		<!--This represents the second page, displaying the second question to be asked.-->
 			<div class="page" id="two">
+				
+			<!--Second question.-->
 				<div class="w3-container w3-flat-carrot">
-					<p id="results"><h1>Results</h1></p>
+					<h1>Question 2</h1>
 				</div>
 	
-				<!--The following segment denotes the final piece of text that contains the respective base percentages and total counts of the gene.-->
-					<center>
-				<div id="content" class="w3-container">
-					<p id='end'>Please allow a few seconds for the results to appear here.</p>	
-				</div>
-			
-				<!--This is where the results chart image will be-->
-					<img id="endimg" src="https://i.imgur.com/rZOaHhx.png" alt="spongebob">
-				<br>
-				<br>
-	
-				<!--The following button returns the user to the home page and resets the counts.-->
-				<a href="#content"  onclick="resetVariables();" class="w3-btn w3-black">Return to Home Page</a>
-					</center>
+				
+				<a href="#content"  onclick="         ;" class="w3-btn w3-black">          </a>
 			</div>
 			
 			
