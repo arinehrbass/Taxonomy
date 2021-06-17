@@ -35,8 +35,28 @@ None
 	
 <!--Script details Javascript functions for storage functions and calculations-->	
 <script>
-	// Stores the last page number, for navigation using the "back" button
-	var lastpage = "home";
+	// Stores all of the species in the database - DO NOT MODIFY WITH FUNCTIONS
+	var speciesList = ["species1", "species2", "species3"];
+	
+	// Dynamically stores the possible species based on taxonomy
+	var possibilities = speciesList;
+	
+	// Stores the latest eliminated species
+	var lastChange = [];
+	
+	// Removes a species from the possibilities list
+	function eliminate(var speciesName)
+	{
+		lastChange.push(speciesName);
+		
+		for(var i = 0; i < possibilities.length; i++)
+		{
+			if(possibilities[i].equalsIgnoreCase(speciesName))
+			{
+				possibilities.splice(i, 1);
+			}
+		}
+	}
 	
 	
 	
@@ -46,9 +66,28 @@ None
 	
 	
 	
+	
+	
+	// Undoes the last change
+	function undo()
+	{
+		if(lastChange.length > 0)
+		{
+			possibilities.push(lastChange.pop(lastChange.length - 1));
+		}
+		else
+		{
+			alert("Could not undo last change.");
+		}
+	}
 	
 	// Resets all variables to their default state
-	function home(){	lastpage = "home";	}
+	function home()
+	{
+		lastpage = "home";
+		possibilities = speciesList;
+		lastChange = "";
+	}
 </script>
 	
 	
@@ -119,10 +158,9 @@ None
 				
     				<div id="content" class="w3-container">
 					<p>            	</p>
-        				<p>        	</p> 
 		
 
-					<a href="#two"  onclick=" ;"	class="w3-btn w3-black">              </a>
+					<a href="#two" onclick=" ;"	class="w3-btn w3-black">              </a>
 					<a href="#home"	onclick="home();" class="w3-btn w3-black">Return to Home Page</a>
     				</div>
 			</div>
@@ -139,7 +177,21 @@ None
 	
 				
 				
-				<a href="#content"  onclick="         ;" class="w3-btn w3-black">          </a>
+				<a href="#content" onclick="         ;" class="w3-btn w3-black">          </a>
+				<a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-black">Go Back</a>
+				<a href="#home"	onclick="home();" class="w3-btn w3-black">Return to Home Page</a>
+			</div>
+			
+			
+			
+			
+		<!--This represents the final results page, displaying the determined species.-->
+			<div class="page" id="resultspage">
+				<div class="w3-container w3-flat-carrot">
+					<h1>Results</h1>
+				</div>
+				
+				<p id="results">		</p>
 			</div>
 			
 			
