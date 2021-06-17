@@ -35,7 +35,20 @@ None
 	
 <!--Script details Javascript functions for storage functions and calculations-->	
 <script>
+	// Stores the last page number, for navigation using the "back" button
+	var lastpage = "home";
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// Resets all variables to their default state
+	function home(){	lastpage = "home";	}
 </script>
 	
 	
@@ -63,6 +76,12 @@ None
 	}
 </style>
 
+
+	
+	
+	
+	
+	
 	
 <!--Describes the content of the pages within the app.-->
 <body>
@@ -72,50 +91,53 @@ None
 		
 		<!--This represents the home page and contains a description of the app and its purpose.-->
 		<div id="content" class="w3-container">
-			<p>This app determines the most likely species of an organism based on answers to a series of taxonomic questions.</p>
-	
-			<!--The following button takes the user to the start of the process.-->
-	
-			<a href="#one" class="w3-btn w3-grey w3-round">Begin</a>
-	
-			<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative Urban Ecosystems Stream at The University of Texas at 		Austin. Members of the UE Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
 			
 			
 			
 			
+			
+			<div class="page" id="home">
+				<p>This app determines the most likely species of an organism based on answers to a series of taxonomic questions.</p>
+
+				<!--The following button takes the user to the start of the process.-->
+				<a href="#one" class="w3-btn w3-grey w3-round">Begin</a>
+
+				<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative Urban Ecosystems Stream at The University of Texas at 		Austin. Members of the UE Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+			</div>
+		
 			
 			
 			
 			
 		<!--This represents the first page with the first question to be asked.-->
 			<div class="page" id="one">
-	
-			<!--First question.-->
 				<div id="header" class="w3-container w3-flat-carrot">
 					<h1>Question 1</h1>
 				</div>
 	
+				
+				
     				<div id="content" class="w3-container">
-					<p>            </p>
-					
-        				<p>        </p> 
+					<p>            	</p>
+        				<p>        	</p> 
 		
-					<!--The following button takes the user to the final page.-->
-         				<a href="#two"  onclick=" ;"	class="w3-btn w3-black">              </a>
+
+					<a href="#two"  onclick=" ;"	class="w3-btn w3-black">              </a>
+					<a href="#home"	onclick="home();" class="w3-btn w3-black">Return to Home Page</a>
     				</div>
 			</div>
 		
 			
 			
 			
+			
 		<!--This represents the second page, displaying the second question to be asked.-->
 			<div class="page" id="two">
-				
-			<!--Second question.-->
 				<div class="w3-container w3-flat-carrot">
 					<h1>Question 2</h1>
 				</div>
 	
+				
 				
 				<a href="#content"  onclick="         ;" class="w3-btn w3-black">          </a>
 			</div>
