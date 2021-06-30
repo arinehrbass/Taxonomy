@@ -103,6 +103,22 @@ None
     		z-index: 0;
     		background-color: hsl(0,0%,100%);
 	}
+	
+	.page1
+	{
+    		width: 100vw;
+    		height: 100vh;
+    		position: fixed;
+    		top: 0;
+    		left: -100vw;
+    		overflow-y: auto;
+    		z-index: 0;
+    		background-image: url('https://i.imgur.com/Zj1fRa7.jpg?1');
+		background-repeat: no-repeat;
+		background-attachment: fixed;  
+		background-size: cover;
+	}
+	
   	.page:target
 	{
     		left: 0vw;
@@ -151,7 +167,7 @@ None
 			<a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 			
 			
-			<div class="page" id="home">
+			<div class="page1" id="home">
 				<div id="header" class="w3-container w3-white w3-center">
 					<h1>Austin Macroinvertebrates</h1>
 				</div>
