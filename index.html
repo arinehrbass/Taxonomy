@@ -22,6 +22,12 @@ To determine the most likely species of an organism via a series of taxonomic qu
  
 Known Issues:
 None
+
+The code that eliminates species is in the works! When it's done, each button will include this bit of code: 
+	onclick=" eliminate("TestSpecies");"
+This tells the program to remove the unwanted species. 
+
+						
 -->
    
 <!--Header displays app title at the top of the page-->
@@ -37,7 +43,7 @@ None
 <!--Script details Javascript functions for storage functions and calculations-->	
 <script>
 	// Stores all of the species in the database - DO NOT MODIFY WITH FUNCTIONS
-	var speciesList = ["Asian Clam", "Fingernail Clam", "Ancylid"];
+	var speciesList = ["Asian Clam", "Fingernail Clam", "Ancylid", ];
 	
 	// Dynamically stores the possible species based on taxonomy
 	var possibilities = speciesList;
@@ -135,6 +141,26 @@ None
 	  background-color: #4CAF50; /* Green */
 	  color: white;	
 	}
+	
+	.button2 {
+	  background-color: #000000;
+	  border: none;
+	  border-radius: 2px;
+	  color: white;
+	  padding: 20px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 24px;
+	  margin: 4px 2px;
+	  cursor: pointer;
+	  transition-duration: 0.1s;
+	}
+	
+	.button:hover {
+	 box-shadow: 0px 0px 3px #000000;
+	}
+	
 </style>
 	
 	
@@ -199,7 +225,7 @@ None
 					<p>Does the organism have legs?</p>
 					
 					<a href="#mitePage" onclick=" ;" 
-					   class="w3-btn w3-black">Yes<br>
+					   class="button2">Yes<br>
 						<img id="legsimg" 
 						     src="https://imgur.com/MM0NWzf.jpg" 
 						     alt="organismwithlegs" 
@@ -207,7 +233,7 @@ None
 						<br>
 						<br>
 					<a href="#seedPage" onclick=" ;" 
-					   class="w3-btn w3-black">No<br>
+					   class="button2">No<br>
 						<img id="nolegsimg"
 						     src="https://imgur.com/Pg6zM1z.jpg" 
 						     alt="organismwithoutlegs" 
@@ -222,34 +248,74 @@ None
 			</div>
 			
 			
-			
+		<!--QUESTION 2: This represents the page which contains the SEED question.-->
+			<div class="page" id="seedPage">
+				<div class="w3-container w3-flat-carrot">
+					<h1>Question 2</h1>
+				</div>
+	
+				<div id="content" class="w3-container">
+					<center>
+					<p>Does the organism look like a small, clear seed?</p>
+							
+					<a href="#resultsPage" onclick=" ;" 
+					   class="button2">Yes</a>
+						<br>
+					<a href="#shellPage" onclick=" ;" 
+					   class="button2">No</a>
+						<br>
+					
+					<a href="javascript:history.back()" 
+					       onclick="undo();" 
+					       class="w3-btn w3-grey w3-round">Go Back</a>
+						<br>
+					<a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+				</div>
+			</div>	
 			
 		
 		<!--This represents the page which contains the MITE question.-->
 			<div class="page" id="mitePage">
 				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Question 2</h1>
+					<h1>Question 3</h1>
 				</div>
 	
-				
-				
     				<div id="content" class="w3-container">
 					<center>
 					<p>Is the organism a mite, amphipod, collembola (very small), or none of the above (class: insecta)?</p>
 		
-
-					
-					<a href="#resultsPage" onclick=" ;" class="w3-btn w3-black">Mite<br><img id="miteimg" src="https://media.proprofs.com/images/QM/user_images/3073412/1693950438.jpg" alt="mite" class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" 
+					   class="button2">Mite<br>
+						<img id="miteimg" 
+						     src="https://imgur.com/aZpeRJj.jpg" 
+						     alt="mite" 
+						     class="dynamicimg"></a>
 						<br>
-					<br><a href="#resultsPage" onclick=" ;" class="w3-btn w3-black">Amphipod<br><img id="amphipodimg" src="https://media.proprofs.com/images/QM/user_images/3073412/3544964702.png" alt="amphipod" class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" 
+					   class="button2">Amphipod<br>
+						<img id="amphipodimg" 
+						     src="https://imgur.com/Q7mK1eY.png" 
+						     alt="amphipod" 
+						     class="dynamicimg"></a>
 						<br>
-					<br><a href="#resultsPage" onclick=" ;" class="w3-btn w3-black">Collembola<br><img id="collembolaimg" src="https://media.proprofs.com/images/QM/user_images/3073412/4470076056.jpg" alt="collembola" class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" 
+					   class="button2">Collembola<br>
+						<img id="collembolaimg" 
+						     src="https://imgur.com/D3cWwWK.jpg" 
+						     alt="collembola" 
+						     class="dynamicimg"></a>
 						<br>
-					<br><a href="#insectPage" onclick=" ;" class="w3-btn w3-black">None of the Above<br><img id="classinsectaimg" src="https://media.proprofs.com/images/QM/user_images/3073412/5192289208.jpg" alt="classinsecta" class="dynamicimg"></a>
+					<a href="#insectPage" onclick=" ;" 
+					   class="button2">None of the Above<br>
+						<img id="classinsectaimg" 
+						     src="https://media.proprofs.com/images/QM/user_images/3073412/5192289208.jpg" 
+						     alt="classinsecta" 
+						     class="dynamicimg"></a>
 						<br>
-					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
+					<a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
 						<br>
-					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					<a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 					</center>
     				</div>
 			</div>
@@ -258,25 +324,7 @@ None
 			
 			
 			
-		<!--This represents the page which contains the SEED question.-->
-			<div class="page" id="seedPage">
-				<div class="w3-container w3-flat-carrot">
-					<h1>Question 3</h1>
-				</div>
-	
-				<div id="content" class="w3-container">
-					<center>
-						
-						
-						
-					<a href="#resultsPage " onclick="         ;" class="w3-btn w3-black">          </a>
-						<br>
-					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
-						<br>
-					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
-					</center>
-				</div>
-			</div>
+		
 			
 			
 			
