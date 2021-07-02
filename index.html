@@ -60,7 +60,21 @@ None
 		}
 	}
 	
-	
+	// Determines text for result page
+	function calculate()
+	{
+		if(possibilities.length == 1)
+		{
+			var finalSpecies = possibilities[1];
+			var finalFamily = familyList[speciesList.indexOf(possibilities[0])];
+			
+			document.getElementById("results").innerHTML = "Species: " + finalSpecies + \n + "Family: " + finalFamily;
+		}
+		else
+		{
+			document.getElementById("results").innerHTML = "Multiple species fit your specified criteria. The program was unable to determine a final result.";
+		}
+	}
 	
 	
 	
