@@ -52,10 +52,10 @@ None
 		
 		for(var i = 0; i < possibilities.length; i++)
 		{
-			if(possibilities[i].equalsIgnoreCase(speciesName))
+			if(possibilities.get(i).equalsIgnoreCase(speciesName))
 			{
 				possibilities.splice(i, 1);
-				i--;
+				i = 0;
 			}
 		}
 	}
@@ -65,8 +65,8 @@ None
 	{
 		if(possibilities.length == 1)
 		{
-			var finalSpecies = possibilities[1];
-			var finalFamily = familyList[speciesList.indexOf(possibilities[0])];
+			var finalSpecies = possibilities.get(0);
+			var finalFamily = familyList[speciesList.indexOf(finalSpecies)];
 			
 			document.getElementById("results").innerHTML = "Species: " + finalSpecies + "<br>Family: " + finalFamily;
 		}
