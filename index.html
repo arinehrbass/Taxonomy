@@ -53,9 +53,8 @@ None
 		for(var i = 0; i < possibilities.length; i++)
 		{
 			var indexedSpecies = possibilities[i];
-			alert(indexedSpecies);
 			
-			if(indexedSpecies.equals(speciesName))
+			if(indexedSpecies === speciesName)
 			{
 				possibilities.splice(i, 1);
 				i = 0;
