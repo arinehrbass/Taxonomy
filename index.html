@@ -250,25 +250,15 @@ This tells the program to remove the unwanted species.
 					<center>
 					<p>Does the organism have legs?</p>
 					
-						<a href="#mitePage" onclick=" eliminate('Asian Clam');eliminate('Fingernail Clam');eliminate('Ancylid');eliminate('Seed Shrimp');eliminate('Bladder Snail');eliminate('Pond Snail');eliminate('Rams Horn Snail');eliminate('Flatworm');eliminate('Roundworm');" 
-						   class="button2">Yes<br>
-							<img id="legsimg" 
-							     src="https://imgur.com/MM0NWzf.jpg" 
-							     alt="organismwithlegs" 
-							     class="dynamicimg"></a>
-							<br>
-							<br>
-						<a href="#seedPage" onclick=" eliminate('Mite');eliminate('Amphipod');eliminate('Collembola');" 
-						   class="button2">No<br>
-							<img id="nolegsimg"
-							     src="https://imgur.com/Pg6zM1z.jpg" 
-							     alt="organismwithoutlegs" 
-							     class="dynamicimg"></a>
+					<a href="#mitePage" onclick=" ;" class="button2">Yes<br>
+						<img id="legsimg" src="https://imgur.com/MM0NWzf.jpg" alt="organismwithlegs" class="dynamicimg"></a>
 						<br>
+					<a href="#seedPage" onclick=" ;" class="button2">No<br>
+						<img id="nolegsimg" src="https://imgur.com/Pg6zM1z.jpg" alt="organismwithoutlegs" class="dynamicimg"></a>
 						<br>
-					<a href="#home" 
-					   onclick="home();"
-					   class="w3-btn w3-grey w3-round">Home Page</a>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 					</center>
     				</div>
 			</div>
@@ -276,7 +266,7 @@ This tells the program to remove the unwanted species.
 			
 		<!--QUESTION 2: This represents the page which contains the SEED question.-->
 			<div class="page" id="seedPage">
-				<div class="w3-container w3-flat-carrot">
+				<div class="w3-container w3-flat-carrot"> 
 					<h1>Question 2</h1>
 				</div>
 	
@@ -284,29 +274,20 @@ This tells the program to remove the unwanted species.
 					<center>
 					<p>Does the organism look like a small, clear seed?</p>
 							
-					<a href="#resultsPage" onclick=" ;" 
-					   class="button2">Yes<br>
-						<img id="seedshrimpimg" 
-						     src="https://imgur.com/xAXYzuC.png" 
-						     alt="seedshrimp" 
-						     class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" class="button2">Yes<br>
+						<img id="seedshrimpimg" src="https://imgur.com/xAXYzuC.png" alt="seedshrimp" class="dynamicimg"></a>
 						<br>
-					<a href="#shellPage" onclick=" ;" 
-					   class="button2">No</a>
+					<a href="#shellPage" onclick=" ;" class="button2">No</a>
 						<br>
-					
-					<a href="javascript:history.back()" 
-					       onclick="undo();" 
-					       class="w3-btn w3-grey w3-round">Go Back</a>
-						<br>
-						<br>
-					<a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 					</center>
 				</div>
 			</div>	
 			
 		
-		<!--This represents the page which contains the MITE question.-->
+		<!--QUESTION 3: This represents the page which contains the MITE question.-->
 			<div class="page" id="mitePage">
 				<div id="header" class="w3-container w3-flat-carrot">
 					<h1>Question 3</h1>
@@ -316,71 +297,49 @@ This tells the program to remove the unwanted species.
 					<center>
 					<p>Is the organism a mite, amphipod, collembola (very small), or none of the above (class: insecta)?</p>
 		
-					<a href="#resultsPage" onclick=" ;" 
-					   class="button2">Mite<br>
-						<img id="miteimg" 
-						     src="https://imgur.com/aZpeRJj.jpg" 
-						     alt="mite" 
-						     class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" class="button2">Mite<br>
+						<img id="miteimg" src="https://imgur.com/aZpeRJj.jpg" alt="mite" class="dynamicimg"></a>
 						<br>
-					<a href="#resultsPage" onclick=" ;" 
-					   class="button2">Amphipod<br>
-						<img id="amphipodimg" 
-						     src="https://imgur.com/Q7mK1eY.png" 
-						     alt="amphipod" 
-						     class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" class="button2">Amphipod<br>
+						<img id="amphipodimg" src="https://imgur.com/Q7mK1eY.png" alt="amphipod" class="dynamicimg"></a>
 						<br>
-					<a href="#resultsPage" onclick=" ;" 
-					   class="button2">Collembola<br>
-						<img id="collembolaimg" 
-						     src="https://imgur.com/D3cWwWK.jpg" 
-						     alt="collembola" 
-						     class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" class="button2">Collembola<br>
+						<img id="collembolaimg" src="https://imgur.com/D3cWwWK.jpg" alt="collembola" class="dynamicimg"></a>	
 						<br>
-					<a href="#insectPage" onclick=" ;" 
-					   class="button2">None of the Above<br>
-						<img id="classinsectaimg" 
-						     src="https://media.proprofs.com/images/QM/user_images/3073412/5192289208.jpg" 
-						     alt="classinsecta" 
-						     class="dynamicimg"></a>
+					<a href="#insectPage" onclick=" ;" class="button2">None of the Above<br>
+						<img id="classinsectaimg" src="https://media.proprofs.com/images/QM/user_images/3073412/5192289208.jpg" alt="classinsecta" class="dynamicimg"></a>
 						<br>
-					<a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
-						<br>
-					<a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 					</center>
     				</div>
 			</div>
 		
 			
 			
+							
 			
-			
-		
-			
-			
-			
-			
-			
-		<!--This represents the page which contains the SHELL question.-->
+		<!--QUESTION 4: This represents the page which contains the SHELL question.-->
 			<div class="page" id="shellPage">
 				<div id="header" class="w3-container w3-flat-carrot">
 					<h1>Question 4</h1>
 				</div>
 	
-				
-				
+			
     				<div id="content" class="w3-container">
 					<center>
 					<p>Does the organism have a shell?</p>
-		
 
 					
-					<a href="#shelltypesPage" onclick=" ;" class="w3-btn w3-black">Yes<br><img id="shellimg" src="https://media.proprofs.com/images/QM/user_images/3073412/7337570950.jpg" alt="shell" class="dynamicimg"></a>
+					<a href="#shelltypesPage" onclick=" ;" class="button2">Yes<br> 
+						<img id="shellimg" src="https://imgur.com/8UKnXKp.jpg" alt="shell" class="dynamicimg"></a>
 						<br>
-					<br><a href="#oblongPage" onclick=" ;" class="w3-btn w3-black">No<br><img id="noshellimg" src="https://media.proprofs.com/images/QM/user_images/3073412/7079659724.jpg" alt="noshell" class="dynamicimg"></a>
+					<a href="#oblongPage" onclick=" ;" class="button2">No<br> 	<!-- GoTo QUESTION 8-->
+						<img id="noshellimg" src="https://imgur.com/WqhBCGC.jpg" alt="noshell" class="dynamicimg"></a>
 						<br>
+					
 					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
-						<br>
 					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 					</center>
     				</div>
@@ -390,29 +349,28 @@ This tells the program to remove the unwanted species.
 			
 			
 			
-		<!--This represents the page which contains the SHELLTYPES question.-->
+		<!--QUESTION 5: This represents the page which contains the SHELLTYPES question.-->
 			<div class="page" id="shelltypesPage">
 				<div id="header" class="w3-container w3-flat-carrot">
 					<h1>Question 5</h1>
 				</div>
 	
-				
-				
+			
     				<div id="content" class="w3-container">
 					<center>
 					<p>What is the organism's type of shell?</p>
 		
-
+					<a href="#clamPage" onclick=" ;" class="button2">Bivalve/Clam (two hinged pieces)<br> <!--Go to QUESTION 6-->
+						<img id="bivalveimg" src="https://imgur.com/QhRxXVx.jpg" alt="bivalve" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button2">Small Dome (single piece)<br>
+						<img id="smalldomeimg" src="https://imgur.com/zcmbogG.jpg" alt="smalldome" class="dynamicimg"></a>
+						<br>
+					<a href="#snailPage" onclick=" ;" class="button2">Gastropod/Snail (single piece, spiral or swirl)<br> <!--Go to QUESTION 7-->
+						<img id="gastropodimg" src="https://imgur.com/m29Kwn6.jpg" alt="gastropod" class="dynamicimg"></a>
+						<br>
 					
-					<a href="#clamPage" onclick=" ;" class="w3-btn w3-black">Bivalve/Clam (two hinged pieces)<br><img id="bivalveimg" src="https://media.proprofs.com/images/QM/user_images/3073412/1453672738.gif" alt="bivalve" class="dynamicimg"></a>
-						<br>
-				<!--End branch. The organism is an ancylid.-->
-					<br><a href="#resultsPage" onclick=" ;" class="w3-btn w3-black">Small Dome (single piece)<br><img id="smalldomeimg" src="https://media.proprofs.com/images/QM/user_images/3073412/3084963327.jpg" alt="smalldome" class="dynamicimg"></a>
-						<br>
-					<br><a href="#snailPage" onclick=" ;" class="w3-btn w3-black">Gastropod/Snail (single piece, spiral or swirl)<br><img id="gastropodimg" src="https://media.proprofs.com/images/QM/user_images/3073412/2341075240.jpg" alt="gastropod" class="dynamicimg"></a>
-						<br>
 					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
-						<br>
 					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 					</center>
     				</div>
@@ -422,28 +380,26 @@ This tells the program to remove the unwanted species.
 			
 			
 			
-		<!--This represents the page which contains the CLAM question.-->
+		<!--QUESTION 6: This represents the page which contains the CLAM question.-->
 			<div class="page" id="clamPage">
 				<div id="header" class="w3-container w3-flat-carrot">
 					<h1>Question 6</h1>
 				</div>
 	
 				
-				
     				<div id="content" class="w3-container">
 					<center>
 					<p>The organism is a clam. Which of the following best describes it?</p>
 		
-
-				
 				<!--End branch. The organism is an Asian clam.-->
-					<a href="#resultsPage" onclick=" ;" class="w3-btn w3-black">Dark yellow to brown or black in color, pronounced ridges along shell<br><img id="darkyellowimg" src="https://media.proprofs.com/images/QM/user_images/3073412/1837665258.jpg" alt="darkyellow" class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" class="button2">Dark yellow to brown or black in color, pronounced ridges along shell<br>
+						<img id="darkyellowimg" src="https://imgur.com/ptu9UQQ.jpg" alt="darkyellow" class="dynamicimg"></a>
 						<br>
 				<!--End branch. The organism is a fingernail clam.-->
-					<br><a href="#resultsPage" onclick=" ;" class="w3-btn w3-black">Pale yellow, less defined/smoother ridges (typically smaller than the above, can be semi-transparent)<br><img id="paleyellowimg" src="https://media.proprofs.com/images/QM/user_images/3073412/5905870740.jpg" alt="paleyellow" class="dynamicimg"></a>
+					<a href="#resultsPage" onclick=" ;" class="button2">Pale yellow, less defined/smoother ridges (typically smaller than the above, can be semi-transparent)<br><img id="paleyellowimg" src="https://imgur.com/nWIeOG3.jpg" alt="paleyellow" class="dynamicimg"></a>
 						<br>
+					
 					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
-						<br>
 					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 					</center>
     				</div>
@@ -451,8 +407,37 @@ This tells the program to remove the unwanted species.
 			
 			
 			
+		<!--QUESTION 7: This represents the page which contains the SNAIL question.-->
+			<div class="page" id="snailPage">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 7</h1>
+				</div>
+	
 			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>What is the orientation of the snail shell?</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button2">The opening is to the left of the spiral<br> <!--End of branch. Physidae -->
+						<img id="physidaeimg" src="https://imgur.com/DLUvemN.jpg" alt="physidae" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button2">The opening is to the right of the spiral<br> <!--End of branch. Lymnaeidae-->
+						<img id="lymnaeidaeimg" src="https://imgur.com/DLUvemN.jpg" alt="lymnaeidae" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button2">The spiral is round and flat. The opening has no leaning<br> <!--End of branch. Planorbidae.-->
+						<img id="planorbidaeimg" src="https://imgur.com/PQgRhmE.jpg" alt="planorbidaeimg" class="dynamicimg"></a>
+						<br>
+					
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>
+			</div>	
 			
+		
+		
+					
+					
 		<!--This represents the page which contains the INSECT FAMILY question.-->
 			<div class="page" id="insectPage">
 				<div id="header" class="w3-container w3-flat-carrot">
