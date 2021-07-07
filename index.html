@@ -43,7 +43,8 @@ This tells the program to remove the unwanted species.
 <!--Script details Javascript functions for storage functions and calculations-->	
 <script>
 	// Stores all of the species in the database - DO NOT MODIFY WITH FUNCTIONS
-	var speciesList = ["Asian Clam", "Fingernail Clam", "Ancylid", ];
+	var speciesList = ["Asian Clam", "Fingernail Clam", "Ancylid", "Seed Shrimp", "Mite", "Amphipod", "Collembola", "Bladder Snail", "Pond Snail", "Rams Horn Snail", "Flatworm", "Leech", "Roundworm"];
+	var familyList = ["Corbiculidae", "Pisidiidae", "Ancylid", "Ostracoda", "Hydrachnidia", "Hyalella", "Collembola", "Physidae", "Lymnaeidae", "Planorbidae", "Dugesia", "Hirudinea", "Oligochaeta"];
 	
 	// Dynamically stores the possible species based on taxonomy
 	var possibilities = speciesList;
@@ -58,23 +59,48 @@ This tells the program to remove the unwanted species.
 		
 		for(var i = 0; i < possibilities.length; i++)
 		{
-			if(possibilities[i].equalsIgnoreCase(speciesName))
+			var indexedSpecies = possibilities[i];
+			
+			if(indexedSpecies === speciesName)
 			{
 				possibilities.splice(i, 1);
-				i--;
+				i = 0;
 			}
 		}
 	}
 	
-	
 
+	// Determines text for result page
+	function calculate()
+	{
+		if(possibilities.length == 1)
+		{
+			var finalSpecies = possibilities[0];
+			var finalFamily = familyList[speciesList.indexOf(finalSpecies)];
+			
+			document.getElementById("results").innerHTML = "Species: " + finalSpecies + "<br>Family: " + finalFamily;
+		}
+		else
+		{
+			document.getElementById("results").innerHTML = "Multiple species fit your specified criteria. The program was unable to determine a final result.";
+		}
+	}
+	
+	
+	
+	
+	
+	
 	
 	// Undoes the last change
-	function undo()
+	function undo(numberOfInstances)
 	{
 		if(lastChange.length > 0)
 		{
-			possibilities.push(lastChange.pop(lastChange.length - 1));
+			for(var i = 0; i < numberOfInstances; i++)
+			{
+				possibilities.push(lastChange.pop(lastChange.length - 1));
+			}
 		}
 		else
 		{
@@ -89,7 +115,8 @@ This tells the program to remove the unwanted species.
 		lastChange = [];
 		alert("Reset all variables.");
 	}
-</script>
+
+	</script>
 	
 	
 <!--Allows for multiple mini pages to be displayed within the single overall app, and describes the format.-->	
@@ -223,20 +250,20 @@ This tells the program to remove the unwanted species.
 					<center>
 					<p>Does the organism have legs?</p>
 					
-					<a href="#mitePage" onclick=" ;" 
-					   class="button2">Yes<br>
-						<img id="legsimg" 
-						     src="https://imgur.com/MM0NWzf.jpg" 
-						     alt="organismwithlegs" 
-						     class="dynamicimg"></a>
-						<br>
-						<br>
-					<a href="#seedPage" onclick=" ;" 
-					   class="button2">No<br>
-						<img id="nolegsimg"
-						     src="https://imgur.com/Pg6zM1z.jpg" 
-						     alt="organismwithoutlegs" 
-						     class="dynamicimg"></a>
+						<a href="#mitePage" onclick=" eliminate('Asian Clam');eliminate('Fingernail Clam');eliminate('Ancylid');eliminate('Seed Shrimp');eliminate('Bladder Snail');eliminate('Pond Snail');eliminate('Rams Horn Snail');eliminate('Flatworm');eliminate('Roundworm');" 
+						   class="button2">Yes<br>
+							<img id="legsimg" 
+							     src="https://imgur.com/MM0NWzf.jpg" 
+							     alt="organismwithlegs" 
+							     class="dynamicimg"></a>
+							<br>
+							<br>
+						<a href="#seedPage" onclick=" eliminate('Mite');eliminate('Amphipod');eliminate('Collembola');" 
+						   class="button2">No<br>
+							<img id="nolegsimg"
+							     src="https://imgur.com/Pg6zM1z.jpg" 
+							     alt="organismwithoutlegs" 
+							     class="dynamicimg"></a>
 						<br>
 						<br>
 					<a href="#home" 
