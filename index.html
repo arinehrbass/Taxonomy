@@ -85,6 +85,7 @@ This tells the program to remove the unwanted species.
 			document.getElementById("results").innerHTML = "Multiple species fit your specified criteria. The program was unable to determine a final result.";
 		}
 	}
+
 	
 	
 	
@@ -254,14 +255,10 @@ This tells the program to remove the unwanted species.
 					<center>
 					<p>Does the organism have legs?</p>
 					
-					<a href="#mitePage" onclick=" ;" class="button2">Yes<br>
-						<img id="legsimg" src="https://imgur.com/MM0NWzf.jpg" alt="organismwithlegs" class="dynamicimg"></a>
+
+					<a href="#mitePage" onclick="eliminate('Asian Clam');eliminate('Fingernail Clam');eliminate('Ancylid');eliminate('Seed Shrimp');eliminate('Bladder Snail');eliminate('Pond Snail');eliminate('Rams Horn Snail');eliminate('Flatworm');eliminate('Roundworm');" class="w3-btn w3-black">Yes<br><img id="legsimg" src="https://media.proprofs.com/images/QM/user_images/3073412/6863043831.jpg" alt="organismwithlegs" class="dynamicimg"></a>
 						<br>
-					<a href="#seedPage" onclick=" ;" class="button2">No<br>
-						<img id="nolegsimg" src="https://imgur.com/Pg6zM1z.jpg" alt="organismwithoutlegs" class="dynamicimg"></a>
-						<br>
-						
-					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+					<br><a href="#seedPage" onclick="eliminate('Mite');eliminate('Amphipod');eliminate('Collembola');" class="w3-btn w3-black">No<br><img id="nolegsimg" src="https://media.proprofs.com/images/QM/user_images/3073412/5839716193.jpg" alt="organismwithoutlegs" class="dynamicimg"></a>
 						<br>
 					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 					</center>
@@ -303,14 +300,13 @@ This tells the program to remove the unwanted species.
 					<center>
 					<p>Is the organism a mite, amphipod, collembola (very small), or none of the above (class: insecta)?</p>
 		
-					<a href="#resultsPage" onclick=" ;" class="button2">Mite<br>
-						<img id="miteimg" src="https://imgur.com/aZpeRJj.jpg" alt="mite" class="dynamicimg"></a>
+
+					
+					<a href="#resultsPage" onclick="eliminate('Amphipod');eliminate('Collembola');" class="w3-btn w3-black">Mite<br><img id="miteimg" src="https://media.proprofs.com/images/QM/user_images/3073412/1693950438.jpg" alt="mite" class="dynamicimg"></a>
 						<br>
-					<a href="#resultsPage" onclick=" ;" class="button2">Amphipod<br>
-						<img id="amphipodimg" src="https://imgur.com/Q7mK1eY.png" alt="amphipod" class="dynamicimg"></a>
+					<br><a href="#resultsPage" onclick="eliminate('Mite');eliminate('Collembola');" class="w3-btn w3-black">Amphipod<br><img id="amphipodimg" src="https://media.proprofs.com/images/QM/user_images/3073412/3544964702.png" alt="amphipod" class="dynamicimg"></a>
 						<br>
-					<a href="#resultsPage" onclick=" ;" class="button2">Collembola<br>
-						<img id="collembolaimg" src="https://imgur.com/D3cWwWK.jpg" alt="collembola" class="dynamicimg"></a>	
+					<br><a href="#resultsPage" onclick="eliminate('Mite');eliminate('Amphipod');" class="w3-btn w3-black">Collembola<br><img id="collembolaimg" src="https://media.proprofs.com/images/QM/user_images/3073412/4470076056.jpg" alt="collembola" class="dynamicimg"></a>
 						<br>
 					<a href="#insectPage" onclick=" ;" class="button2">None of the Above<br>
 						<img id="classinsectaimg" src="https://media.proprofs.com/images/QM/user_images/3073412/5192289208.jpg" alt="classinsecta" class="dynamicimg"></a>
@@ -327,7 +323,36 @@ This tells the program to remove the unwanted species.
 			
 							
 			
-		<!--QUESTION 4: This represents the page which contains the SHELL question.-->
+
+			
+		<!--This represents the page which contains the SEED question.-->
+			<div class="page" id="seedPage">
+				<div class="w3-container w3-flat-carrot">
+					<h1>Question 3</h1>
+				</div>
+	
+				<div id="content" class="w3-container">
+					<center>
+						<p>Does the organism look like a small, clear seed?</p>
+						
+						
+						
+					<a href="#resultsPage" onclick="         ;" class="w3-btn w3-black">Yes</a>
+						<br>
+					<a href="#shellPage" onclick="         ;" class="w3-btn w3-black">No</a>
+						<br>
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+		<!--This represents the page which contains the SHELL question.-->
 			<div class="page" id="shellPage">
 				<div id="header" class="w3-container w3-flat-carrot">
 					<h1>Question 4</h1>
@@ -589,8 +614,9 @@ This tells the program to remove the unwanted species.
 				
 				<div id="content" class="w3-container">
 					<center>
-					<p id="results">Results display here. If you are seeing this text, it means no recorded species matched your description.</p>
+					<p id="results">Results display here.</p>
 				
+					<a onclick="calculate();" class="w3-btn w3-black">Get Results</a>
 					<a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 				</center>
 			</div>
