@@ -224,7 +224,7 @@ This tells the program to remove the unwanted species.
 				<!--Button: The following button takes the user to the start of the process.-->
 				<center>	
 					<br>
-					<a href="#legsPage" class="button1">
+					<a href="#odonataPage" class="button1">
 						<img id="homeBug" src="https://i.imgur.com/KjVFHUa.png" alt="homeBug" class="dynamicimg w3-round">
 						<br> Begin
 					</a>
@@ -565,7 +565,9 @@ This tells the program to remove the unwanted species.
 					
 					<a href="#dipteraPage" onclick=" ;" class="button2">Order Diptera (fly larvae)<br><img id="dipteraimg" src="https://i.imgur.com/UsxbwOO.jpg" alt="diptera" class="dynamicimg"></a>
 						<br>
-					<a href="#elmidaeAdultsPage" onclick=" ;" class="button2">Order Elmidae (adult beetles)<br><img id="beetleimg" src="https://imgur.com/w6Z58pS.jpg" alt="beetle" class="dynamicimg"></a>
+					<a href="#beetlesPage" onclick=" ;" class="button2">Order Elmidae (adult beetles)<br><img id="beetleimg" src="https://imgur.com/w6Z58pS.jpg" alt="beetle" class="dynamicimg"></a>
+						<br>
+					<a href="#odonataPage" onclick=" ;" class="button2">Order Elmidae (adult beetles)<br><img id="beetleimg" src="https://imgur.com/w6Z58pS.jpg" alt="beetle" class="dynamicimg"></a>
 						<br>
 					
 					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
@@ -578,23 +580,21 @@ This tells the program to remove the unwanted species.
 			
 			
 			
-		<!--This represents the page which contains the ORDER: DIPTERA question.-->
-			<div class="page" id="dipteraPage">
+		<!--ODONATA: This represents the page which contains the ORDER: ODONATA question.-->
+			<div class="page" id="odonataPage">
 				<div id="header" class="w3-container w3-flat-carrot">
-					<h1>Question 7</h1>
+					<h1>Question 1</h1>
 				</div>
 	
 			
     				<div id="content" class="w3-container">
 					<center>
-					<p>ORDER: DIPTERA. Which of the following best describes your diptera larva? </p>
+					<p>ORDER: ODONATA. Which of the following best describes your odonata larva? </p>
 		
 					
-					<a href="#simuliidaePage" onclick=" ;" class="w3-btn w3-black">One small fleshy proleg near the head (A). The back end looks plump and swollen (B). <br>Two large labral fans protrude from the head for collecting food (C).<br><img id="simuliidaeimg" src="https://i.imgur.com/Trq88ps.png" alt="simuliidae" class="dynamicimg"></a>
+					<a href="#odonata2Page" onclick=" ;" class="button2">Is your organism long and slender with 3 leaf-like protrusions (caudal gills) coming from its tail? Keep in mind that it is possible that one or more of these protrusions may be lost during the collection process.<br><img id="zygopteraimg" src="https://i.imgur.com/Trq88ps.png" alt="zygoptera" class="dynamicimg"></a>
 						<br>
-					
-				<!--End branch. The organism is a Chironomidae.-->
-					<a href="#resultsPage" onclick=" ;" class="w3-btn w3-black">Two sets of fleshy prolegs: one at the front end (A) and one at the back end (B). <br> The head capsule is round and easily identifiable. The organism often rests in a curved fetal position after being treated with ethanol. <br>They are often very small and appear whitish-yellowish in color.<br><img id="simuliidaeimg" src="https://i.imgur.com/Trq88ps.png" alt="simuliidae" class="dynamicimg"></a>
+					<a href="#odonata7Page" onclick=" ;" class="button2">No, the organism is stout and round with no leaf-like protrusions.<br><img id="anisopteraimg" src="https://i.imgur.com/Trq88ps.png" alt="anisoptera" class="dynamicimg"></a>
 						<br>
 					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>
 						<br>
@@ -603,7 +603,32 @@ This tells the program to remove the unwanted species.
     				</div>
 			</div>
 		
+					
+		<!--QUESTION 2: This represents the page which contains the ZYGOPTERA question.-->
+			<div class="page" id="odonata2Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 2<br>Suborder: Zygoptera</h1>
+				</div>
 	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Look at the antennae. Is the first segment significantly longer than the others, roughly equal in length to the other segments combined?
+</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button2">Yes, my organism has suction cups<br> <!--End of branch. Hirudinae -->
+						<img id="hirudinaeimg" src="https://imgur.com/sZeoJ0E.jpg" alt="hirudinae" class="dynamicimg"></a>
+						<br>
+					<a href="#wormPage" onclick=" ;" class="button2">No, my organism does not have suction cups.</a>
+						<br>
+					
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>
+			</div>	
+					
 	<!--This represents the final results page, displaying the determined species.-->
 			<div class="page" id="resultsPage">
 				<div class="w3-container w3-flat-carrot">
