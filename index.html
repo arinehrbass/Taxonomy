@@ -61,6 +61,15 @@ This tells the program to remove the unwanted species.
 		var index = possibilities.indexOf(speciesName);
 		
 		console.log(index);
+		
+		if(index > -1)
+		{
+			lastChange.push(speciesName);
+			possibilities.splice(index, 1);
+		}
+		
+		console.log(lastChange);
+		console.log(possibilities);
 	}
 	
 
