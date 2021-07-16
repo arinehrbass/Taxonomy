@@ -46,8 +46,8 @@ This tells the program to remove the unwanted species.
 	var speciesList = ["Asian Clam", "Fingernail Clam", "Ancylid", "Seed Shrimp", "Mite", "Amphipod", "Collembola", "Bladder Snail", "Pond Snail", "Rams Horn Snail", "Flatworm", "Leech", "Roundworm"];
 	var familyList = ["Corbiculidae", "Pisidiidae", "Ancylid", "Ostracoda", "Hydrachnidia", "Hyalella", "Collembola", "Physidae", "Lymnaeidae", "Planorbidae", "Dugesia", "Hirudinea", "Oligochaeta"];
 	
-	// Dynamically stores the possible species based on taxonomy
-	var possibilities = speciesList;
+	// Dynamically stores the possible species based on taxonomy, initiated in "home" function
+	var possibilities = [];
 	
 	// Stores the latest eliminated species
 	var lastChange = [];
@@ -115,7 +115,10 @@ This tells the program to remove the unwanted species.
 	// Resets all variables to their default state
 	function home()
 	{
-		possibilities = speciesList;
+		for(var i = 0; i < speciesList.length; i++)
+		{
+			possibilities[i] = speciesList[i];
+		}
 		lastChange = [];
 		alert("Reset all variables.");
 		
