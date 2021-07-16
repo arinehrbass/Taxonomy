@@ -55,20 +55,14 @@ This tells the program to remove the unwanted species.
 	// Removes a species from the possibilities list
 	function eliminate(speciesName)
 	{
-		console.log(possibilities);
-		console.log(speciesName);
-		
 		var index = possibilities.indexOf(speciesName);
-		
-		console.log(index);
-		
 		if(index > -1)
 		{
 			lastChange.push(speciesName);
 			possibilities.splice(index, 1);
 		}
 		
-		console.log(lastChange);
+		console.log("Possibilities:");
 		console.log(possibilities);
 	}
 	
@@ -122,8 +116,11 @@ This tells the program to remove the unwanted species.
 		lastChange = [];
 		alert("Reset all variables.");
 		
+		console.log("Possibilities:");
 		console.log(possibilities);
+		console.log("lastChange:");
 		console.log(lastChange);
+		console.log("speciesList:");
 		console.log(speciesList);
 	}
 
@@ -266,7 +263,7 @@ This tells the program to remove the unwanted species.
 					<p>Does the organism have legs?</p>
 					
 
-					<a href="#mitePage" onclick="eliminate('Asian Clam');" class="w3-btn w3-black">Yes<br><img id="legsimg" src="https://media.proprofs.com/images/QM/user_images/3073412/6863043831.jpg" alt="organismwithlegs" class="dynamicimg"></a>
+					<a href="#mitePage" onclick="eliminate('Asian Clam');eliminate('Fingernail Clam');eliminate('Ancylid');eliminate('Seed Shrimp');eliminate('Bladder Snail');eliminate('Pond Snail');eliminate('Rams Horn Snail');eliminate('Flatworm');eliminate('Leech');eliminate('Roundworm');" class="w3-btn w3-black">Yes<br><img id="legsimg" src="https://media.proprofs.com/images/QM/user_images/3073412/6863043831.jpg" alt="organismwithlegs" class="dynamicimg"></a>
 						<br>
 					<br><a href="#seedPage" onclick="" class="w3-btn w3-black">No<br><img id="nolegsimg" src="https://media.proprofs.com/images/QM/user_images/3073412/5839716193.jpg" alt="organismwithoutlegs" class="dynamicimg"></a>
 						<br>
