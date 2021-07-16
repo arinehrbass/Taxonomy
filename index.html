@@ -70,10 +70,14 @@ This tells the program to remove the unwanted species.
 	// Determines text for result page
 	function calculate()
 	{
+		console.log("Number of possibilities: " + possibilities.length);
+		
 		if(possibilities.length == 1)
 		{
 			var finalSpecies = possibilities[0];
+			console.log("Final species: " + finalSpecies);
 			var finalFamily = familyList[speciesList.indexOf(finalSpecies)];
+			console.log("Final family: " + finalFamily);
 			
 			document.getElementById("results").innerHTML = "Species: " + finalSpecies + "<br>Family: " + finalFamily;
 		}
@@ -623,7 +627,7 @@ This tells the program to remove the unwanted species.
 					<center>
 					<p id="results">Results display here.</p>
 				
-					<a onclick="calculate();" class="w3-btn w3-black">Get Results</a>
+					<a onclick="calculate();" class="w3-btn w3-black">CLICK to Get Results</a>
 					<a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
 				</center>
 			</div>
