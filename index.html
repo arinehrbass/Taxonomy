@@ -55,18 +55,8 @@ This tells the program to remove the unwanted species.
 	// Removes a species from the possibilities list
 	function eliminate(speciesName)
 	{
-		lastChange.push(speciesName);
-		
-		for(var i = 0; i < possibilities.length; i++)
-		{
-			var indexedSpecies = possibilities[i];
-			
-			if(indexedSpecies === speciesName)
-			{
-				possibilities.splice(i, 1);
-				i = 0;
-			}
-		}
+		console.log(possibilities);
+		console.log("test");
 	}
 	
 
@@ -256,7 +246,7 @@ This tells the program to remove the unwanted species.
 					<p>Does the organism have legs?</p>
 					
 
-					<a href="#mitePage" onclick="" class="w3-btn w3-black">Yes<br><img id="legsimg" src="https://media.proprofs.com/images/QM/user_images/3073412/6863043831.jpg" alt="organismwithlegs" class="dynamicimg"></a>
+					<a href="#mitePage" onclick="eliminate('snail');" class="w3-btn w3-black">Yes<br><img id="legsimg" src="https://media.proprofs.com/images/QM/user_images/3073412/6863043831.jpg" alt="organismwithlegs" class="dynamicimg"></a>
 						<br>
 					<br><a href="#seedPage" onclick="" class="w3-btn w3-black">No<br><img id="nolegsimg" src="https://media.proprofs.com/images/QM/user_images/3073412/5839716193.jpg" alt="organismwithoutlegs" class="dynamicimg"></a>
 						<br>
