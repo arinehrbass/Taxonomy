@@ -204,6 +204,26 @@ This tells the program to remove the unwanted species.
 }
 	
 	
+	.button3 {
+	  background-color: #000000; 
+	  border: none;
+	  color: white;
+	  padding: 20px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 4px 2px;
+	  width: 400px;
+	  cursor: pointer;
+	  transition-duration: 0.1s
+}
+
+	.button3:hover {
+	  box-shadow: 0px 0px 5px #000000;
+}
+	
+	
 </style>
 	
 	
@@ -582,6 +602,8 @@ This tells the program to remove the unwanted species.
 						<br>
 					<a href="#elmidaeAdultsPage" onclick=" ;" class="button2">Order Elmidae (adult beetles)<br><img id="beetleimg" src="https://imgur.com/w6Z58pS.jpg" alt="beetle" class="dynamicimg"></a>
 						<br>
+					<a href="#trichPage" onclick=" ;" class="button2">Order Trichoptera (caddisfly larvae)<br><img id="trichopteraimg" src="https://imgur.com/HhS8Kyj.jpg" alt="trichoptera" class="dynamicimg"><br><img id="trichopteraimg2" src="https://imgur.com/XH6oWHd.jpg" alt="trichoptera2" class="dynamicimg"></a>
+						<br>
 					
 					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
 						<br>
@@ -619,6 +641,428 @@ This tells the program to remove the unwanted species.
 			</div>
 		
 	
+					
+					
+					
+					
+					
+					
+		<!--TRICHOPTERA: This represents the page which contains the first Trichoptera question.-->
+			<div class="page" id="trichPage">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Order: Trichoptera</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Does the larva live in a case? (usually self assembled from small pebbles, sand, silt, twigs, or leaf litter. Often you will see the case but not the organism because the larva is hiding inside.)</p>
+		
+					<a href="#trich2Page" onclick=" ;" class="button2">Yes, it lives in a case.<br>
+						<img id="caddisCaseimg" src="https://imgur.com/HhS8Kyj.jpg" alt="caddisCase" class="dynamicimg"></a>
+						<br>
+					<a href="#trich6Page" onclick=" ;" class="button2">No, it is free swimming.<br>
+						<img id="caddisFreeimg" src="https://imgur.com/XH6oWHd.jpg" alt="caddisFree" class="dynamicimg"></a>
+						<br>
+					<a href="#trich10Page" onclick=" ;" class="button2">Larva is significantly smaller than other caddisflies. May or may not be found in a small sand/silk casing.<br>
+						<img id="caddisSilkimg" src="https://imgur.com/ntQupOF.jpg" alt="caddisSilk" class="dynamicimg"></a>
+						<br>
+					
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>
+			</div>				
+
+					
+					
+					
+					
+
+					
+		<!--TRICH 2: This represents the page which contains the Trichoptera CASE question.-->
+			<div class="page" id="trich2Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 2</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Select case type.</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button2">Snail shell, made of tiny pebbles.<br> <!--Helicopsyche-->
+						<img id="helicopsycheimg" src="https://imgur.com/UAuHqLG.jpg" alt="helicopsyche" class="dynamicimg"></a>
+						<br>
+					<a href="#trich5Page" onclick=" ;" class="button2">Elongate and slightly curved, made of small pebbles.<br>
+						<img id="curvedcaseimg" src="https://imgur.com/XhhJhtQ.jpg" alt="curvedcase" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button2">Case made of bark and leaves in the manner shown below.<br><!--Family: Calamoceratidae. Genus: Phylloicus-->
+						<img id="Phylloicusimg" src="https://imgur.com/YPFNlY8.jpg" alt="Phylloicus" class="dynamicimg"></a>
+						<br>
+					<a href="#trich3Page" onclick=" ;" class="button2">Other.</a>
+						<br>						
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>
+			</div>	
+				
+					
+					
+					
+					
+					
+					
+		<!--TRICH 3: This represents the page which contains the Trichoptera ANTERNNAE question.-->
+			<div class="page" id="trich3Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 3</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Most caddisfly larva have antennae that are so small that they are not visible under the microscope, however some larva have visible antennae like the ones shown below. Does your larva have visible antennae?</p>
+		
+					<a href="#trich4Page" onclick=" ;" class="button2">Yes, the antennae are visible.</a>
+						<br>
+					<a href="#trichMysteryPage" onclick=" ;" class="button2">No, the antennae are too small to be seen.</a>
+						<br>	<!--Go to page that says "You have either found an uncommon Trichoptera, or you made a mistake. Go back to the begining of the Trichoptera key.-->			
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>			
+				
+		<!--TRICH MYSTERY PAGE-->
+			<div class="page" id="trichMysteryPage">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Unknown Trichoptera</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>You have either found a very uncommon Trichoptera (not yet added to this key), or you have made a mistake.</p>
+		
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>			
+				
+				
+				
+				
+				
+				
+				
+		<!--TRICH 4: This represents the page which contains the Trichoptera LEPTOCERIDAE question.-->
+			<div class="page" id="trich4Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 4</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Which of the following best describes your larva?</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button3">Elongate but short and stout with sharp protruding maxillary palpi (arrow).<br> <!--Oecetis-->
+						<img id="Oecetisimg" src="https://imgur.com/KUm0AJI.jpg" alt="Oecetis" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button3">Long and narrow with blunt maxillary palpi that do not protrude beyond the labrum.<br> <!--Nectopsyche-->
+						<img id="Nectopsycheimg" src="https://imgur.com/JEzuAPE.jpg" alt="Nectopsyche" class="dynamicimg"></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>			
+				
+				
+				
+				
+
+				
+				
+		<!--TRICH 5: This represents the page which contains the Trichoptera PLATES question.-->
+			<div class="page" id="trich5Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 5</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Are the scleritized plates on the second (plates 1-6) and third (plates 7-10) thoracic segments arranged into the following pattern?</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button2">Yes<br> <!--Family: Odontoceridae. Genus: Marilia.-->
+						<img id="Marillaimg" src="https://imgur.com/CCldyVe.jpg" alt="Marilla" class="dynamicimg"></a>
+						<br>
+					<a href="#trich3Page" onclick=" ;" class="button2">No.<br></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>	
+				
+				
+				
+				
+				
+				
+					
+		<!--TRICH 6: This represents the page which contains the Trichoptera FREE SWIMMING question.-->
+			<div class="page" id="trich6Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 6</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Which of the following best describes your larva?</p>
+		
+					<a href="#trich7Page" onclick=" ;" class="button2">Each of the three thoracic segments have a sclerotized plate (A), ventral gills protrude from the abdomen (B). Larvae are typically brown, tan, or green in color.<br>
+						<img id="brownTrichimg" src="https://imgur.com/NFSvV9h.jpg" alt="brownTrich" class="dynamicimg"></a>
+						<br>
+					<a href="#trich9Page" onclick=" ;" class="button2">Only the first thoracic segment has a sclerotized plate (A), and ventral gills are absent from the abdomen. Larvae are typically white, cream, or yellow in color.<br>
+						<img id="whiteTrichimg" src="https://imgur.com/7wpP9kc.jpg" alt="whiteTrich" class="dynamicimg"></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>	
+				
+				
+				
+				
+				
+				
+				
+		<!--TRICH 7: This represents the page which contains the Trichoptera HYDROPSYCHIDAE question.-->
+			<div class="page" id="trich7Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 7</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Look at the underside of the tail. Is the first ventral sternite single or split?</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button2">Single.<br> <!--Smicridea-->
+						<img id="Smicrideaimg" src="https://imgur.com/A4AwAF0.jpg" alt="Smicridea" class="dynamicimg"></a>
+						<br>
+					<a href="#trich8Page" onclick=" ;" class="button2">Split.<br>
+						<img id="splitVentralimg" src="https://imgur.com/soFtPWU.jpg" alt="splitVentral" class="dynamicimg"></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>	
+				
+				
+				
+				
+				
+				
+				
+		<!--TRICH 8: This represents the page which contains the Trichoptera Hydropsychidae question.-->
+			<div class="page" id="trich8Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 8</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Look just beneath the front legs. Do the paired sclerites appear large or small?</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button2">Large.<br> <!--Family: Hydropsychidae. Genus: Hydropsyche-->
+						<img id="Hydropsycheimg" src="https://imgur.com/eQwI9RB.jpg" alt="Hydropsyche" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button2">Small (most common).<br> <!--Family: Hydropsychidae. Genus: Cheumatopsyche.-->
+						<img id="Cheumatopsycheimg" src="https://imgur.com/ssvNJCA.jpg" alt="Cheumatopsyche" class="dynamicimg"></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>	
+				
+				
+				
+				
+				
+				
+				
+		<!--TRICH 9: This represents the page which contains the Trichoptera FACE question.-->
+			<div class="page" id="trich9Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 9</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Look at the very front of the face. Is there an asymmetric notch right above the mouth parts?</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button3">Yes (most common).<br> <!--Family: Philopotamidae. Genus: Chimarra.-->
+						<img id="Chimarraimg" src="https://imgur.com/URoZmnd.jpg" alt="Chimarra" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button3">No asymmetric notch.The head is more round than elongate and may possess spots.<br> <!--Family: Polycentropodidae. Genus: Polycentropus/Cernotina.-->
+						<img id="Cernotinaimg" src="https://imgur.com/y32sRck.jpg" alt="Cernotina" class="dynamicimg"></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>
+				
+				
+				
+				
+				
+				
+				
+		<!--TRICH 10: This represents the page which contains the Trichoptera HYDROPTILLIDAE question.-->
+			<div class="page" id="trich10Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 10</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Family: Hydroptilidae - Which of the following most resembles your Hydroptilid?</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button3">Very thin waist with sudden increase in abdominal width. Abdominal segments possess small thin sclerites. Case looks like a sack with two small holes at either end.<br> <!--Family: Hydroptilidae. Genus: Leucotrichia.-->
+						<img id="Leucotrichiaimg" src="https://imgur.com/oYNzdR1.jpg" alt="Leucotrichia" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button3">Silken case in the shape shown below. Larvae have unusually long legs.<br> <!--Family: Hydroptilidae. Genus: Oxyethira-->
+						<img id="Oxyethiraimg" src="https://imgur.com/xfKuRz2.jpg" alt="Oxyethira" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button3">Most abdominal segments possess fleshy projections. Flat, teardrop-shaped silken case.<br> <!--Family: Hydroptilidae. Genus: Ithytrichia-->
+						<img id="Ithytrichiaimg" src="https://imgur.com/ZqYHOT9.jpg" alt="Ithytrichia" class="dynamicimg"></a>
+						<br>
+					<a href="#trich11Page" onclick=" ;" class="button3">Larva has the body proportions shown below. Cases are made of sand or silk and shaped like grains of rice.<br>
+						<img id="trichRiceimg" src="https://imgur.com/S423iXF.jpg" alt="trichRice" class="dynamicimg"></a>
+						<br>
+					<a href="#trich13Page" onclick=" ;" class="button3">Other. Case somewhat conical.<br>
+						<img id="trichConeimg" src="https://imgur.com/6PVtbSf.jpg" alt="trichCone" class="dynamicimg"></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>
+				
+				
+				
+				
+				
+				
+				
+		<!--TRICH 11: This represents the page which contains the Trichoptera TARSAL CLAWS question.-->
+			<div class="page" id="trich11Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 11</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Look at the tarsal claws on the middle and hind legs. Are basal setae present? If case is present, choose the option that most closely resembles your case.</p>
+		
+					<a href="#trich12Page" onclick=" ;" class="button2">Yes, basal setae are present. Case contains grains of sand (Most common).<br>
+						<img id="Basalimg" src="https://imgur.com/GPKzJ5t.jpg" alt="Basal" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button2">No, basal setae are absent. Case contains algae filaments arranged concentrically.<br>
+						<img id="Metrichiaimg" src="https://imgur.com/xITYChm.jpg" alt="Metrichia" class="dynamicimg"></a> <!--Family: Hydroptilidae. Genus: Metrichia-->
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>	
+				
+				
+				
+				
+				
+				
+				
+		<!--TRICH 12: This represents the page which contains the Trichoptera GILLS question.-->
+			<div class="page" id="trich12Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 12</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Look for three filamentous gills protruding from the posterior abdomen. These gills are clear unlike the thin black hairs that also protrude from the tail region. They may be difficult to see.</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button2">Three clear filamentous gills are present (Most common).<br><!--Family: Hydroptilidae. Genus: Hydroptila-->
+						<img id="Hydroptilaimg" src="https://imgur.com/LxGdPH7.jpg" alt="Hydroptila" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button2">No such gills are present, only dark hairs (Uncommon).<br><!--Family: Hydroptilidae. Genus: Ochrotrichia-->
+						<img id="Ochrotrichiaimg" src="https://imgur.com/8fdzIe2.jpg" alt="Ochrotrichia" class="dynamicimg"></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>	
+				
+				
+				
+				
+				
+				
+				
+		<!--TRICH 13: This represents the page which contains the Trichoptera ABDOMEN question.-->
+			<div class="page" id="trich13Page">
+				<div id="header" class="w3-container w3-flat-carrot">
+					<h1>Question 13</h1>
+				</div>
+	
+			
+    				<div id="content" class="w3-container">
+					<center>
+					<p>Which of the following best describes your hydroptilid?</p>
+		
+					<a href="#resultsPage" onclick=" ;" class="button2">Abdomen is wide where it meets the thorax and tapers posteriorly. Head is pointed and possum-shaped. Case is made of silk. .<br><!--Family: Hydroptilidae. Genus: Mayatrichia-->
+						<img id="Mayatrichiaimg" src="https://imgur.com/nMcM9Fs.jpg" alt="Mayatrichia" class="dynamicimg"></a>
+						<br>
+					<a href="#resultsPage" onclick=" ;" class="button2">Abdomen is not as wide near the thorax and has a more standard shape. Head is round. Case is made of sand. <br><!--Family: Hydroptilidae. Genus: Neotrichia-->
+						<img id="Neotrichiaimg" src="https://imgur.com/WsHL8K1.jpg" alt="Neotrichia" class="dynamicimg"></a>
+						<br>
+						
+					<br><a href="javascript:history.back()" onclick="undo();" class="w3-btn w3-grey w3-round">Go Back</a>	
+						<br>
+					<br><a href="#home" onclick="home();" class="w3-btn w3-grey w3-round">Home Page</a>
+					</center>
+    				</div>
 	<!--This represents the final results page, displaying the determined species.-->
 			<div class="page" id="resultsPage">
 				<div class="w3-container w3-flat-carrot">
